@@ -7,6 +7,58 @@ entries:
       artifacthub.io/operator: "true"
       artifacthub.io/prerelease: "true"
     apiVersion: v2
+    appVersion: 0.2.0-probe-improment
+    created: "2022-11-30T10:40:08.967246616Z"
+    dependencies:
+    - condition: wesql.enabled
+      name: wesql
+      repository: file://../wesql
+      version: 0.1.*
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.43.*
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 15.15 - 15.16
+    - condition: loadbalancer.enabled
+      name: loadbalancer
+      repository: file://../loadbalancer
+      version: 0.1.*
+    - condition: snapshot-controller.enabled
+      name: snapshot-controller
+      repository: https://piraeus.io/helm-charts
+      version: 1.*
+    - condition: csi-s3.enabled
+      name: csi-s3
+      repository: https://github.com/CloudVE/helm-charts/raw/master
+      version: 0.*
+    description: KubeBlocks Core Controller Operator.
+    digest: 7b38c07258d9fa7d15eefb408397617b6cff81a83bd2cb5cf3f82fef143e9b1c
+    home: https://www.kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    keywords:
+    - kubernetes
+    - database
+    - paas
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: Your Name
+      url: https://github.com/apecloud/kubeblocks/
+    name: kubeblocks
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.2.0-probe-improment/kubeblocks-0.2.0-probe-improment.tgz
+    version: 0.2.0-probe-improment
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/links: ""
+      artifacthub.io/operator: "true"
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
     appVersion: 0.2.0-demo.2
     created: "2022-11-25T02:52:52.218101733Z"
     dependencies:
@@ -444,11 +496,11 @@ entries:
       artifacthub.io/prerelease: "true"
     apiVersion: v2
     appVersion: 0.2.0-alpha.2-test
-    created: "2022-11-16T01:40:27.894890689Z"
+    created: "2022-11-14T11:15:49.977234744Z"
     dependencies:
     - condition: wesql.enabled
       name: wesql
-      repository: file://../wesql
+      repository: https://apecloud.github.io/helm-charts
       version: 0.1.*
     - condition: grafana.enabled
       name: grafana
@@ -460,10 +512,10 @@ entries:
       version: 15.15 - 15.16
     - condition: loadbalancer.enabled
       name: loadbalancer
-      repository: file://../loadbalancer
+      repository: https://apecloud.github.io/helm-charts
       version: 0.1.*
     description: KubeBlocks Core Controller Operator.
-    digest: 27dce1c2f0b67b350ce167d692ee1b783dc586c1ce80e900d50c68781ad1618e
+    digest: 39d25020c01ea2ee4c8b5d1a0313180e834470636d8e37a527f83e101f5049a6
     home: https://www.kubeblocks.io/
     icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
     keywords:
@@ -488,11 +540,11 @@ entries:
       artifacthub.io/prerelease: "true"
     apiVersion: v2
     appVersion: 0.2.0-alpha.2-test
-    created: "2022-11-14T11:15:49.977234744Z"
+    created: "2022-11-16T01:40:27.894890689Z"
     dependencies:
     - condition: wesql.enabled
       name: wesql
-      repository: https://apecloud.github.io/helm-charts
+      repository: file://../wesql
       version: 0.1.*
     - condition: grafana.enabled
       name: grafana
@@ -504,10 +556,10 @@ entries:
       version: 15.15 - 15.16
     - condition: loadbalancer.enabled
       name: loadbalancer
-      repository: https://apecloud.github.io/helm-charts
+      repository: file://../loadbalancer
       version: 0.1.*
     description: KubeBlocks Core Controller Operator.
-    digest: 39d25020c01ea2ee4c8b5d1a0313180e834470636d8e37a527f83e101f5049a6
+    digest: 27dce1c2f0b67b350ce167d692ee1b783dc586c1ce80e900d50c68781ad1618e
     home: https://www.kubeblocks.io/
     icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
     keywords:
@@ -984,50 +1036,6 @@ entries:
       artifacthub.io/prerelease: "true"
     apiVersion: v2
     appVersion: 0.2.0-alpha.3
-    created: "2022-11-15T13:09:17.484154119Z"
-    dependencies:
-    - condition: wesql.enabled
-      name: wesql
-      repository: https://apecloud.github.io/helm-charts
-      version: 0.1.*
-    - condition: grafana.enabled
-      name: grafana
-      repository: https://grafana.github.io/helm-charts
-      version: 6.43.*
-    - condition: prometheus.enabled
-      name: prometheus
-      repository: https://prometheus-community.github.io/helm-charts
-      version: 15.15 - 15.16
-    - condition: loadbalancer.enabled
-      name: loadbalancer
-      repository: https://apecloud.github.io/helm-charts
-      version: 0.1.*
-    description: KubeBlocks Core Controller Operator.
-    digest: 8fcf24e94096a59addfb5b42d728ed0f96fac37f768aa20d336b5a8ac26bdfcd
-    home: https://www.kubeblocks.io/
-    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
-    keywords:
-    - kubernetes
-    - database
-    - paas
-    kubeVersion: '>=1.22.0-0'
-    maintainers:
-    - name: Your Name
-      url: https://github.com/apecloud/kubeblocks/
-    name: kubeblocks
-    sources:
-    - https://github.com/apecloud/kubeblocks/
-    type: application
-    urls:
-    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.2.0-alpha.3/kubeblocks-0.2.0-alpha.3.tgz
-    version: 0.2.0-alpha.3
-  - annotations:
-      artifacthub.io/changes: ""
-      artifacthub.io/links: ""
-      artifacthub.io/operator: "true"
-      artifacthub.io/prerelease: "true"
-    apiVersion: v2
-    appVersion: 0.2.0-alpha.3
     created: "2022-11-15T13:50:38.848745319Z"
     dependencies:
     - condition: wesql.enabled
@@ -1092,6 +1100,50 @@ entries:
       version: 0.1.*
     description: KubeBlocks Core Controller Operator.
     digest: e985b4ac753a89e449c6b1190f997c32f11d8bbf6f2451ec3f6dc981f84038bb
+    home: https://www.kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    keywords:
+    - kubernetes
+    - database
+    - paas
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: Your Name
+      url: https://github.com/apecloud/kubeblocks/
+    name: kubeblocks
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.2.0-alpha.3/kubeblocks-0.2.0-alpha.3.tgz
+    version: 0.2.0-alpha.3
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/links: ""
+      artifacthub.io/operator: "true"
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
+    appVersion: 0.2.0-alpha.3
+    created: "2022-11-15T13:09:17.484154119Z"
+    dependencies:
+    - condition: wesql.enabled
+      name: wesql
+      repository: https://apecloud.github.io/helm-charts
+      version: 0.1.*
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.43.*
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 15.15 - 15.16
+    - condition: loadbalancer.enabled
+      name: loadbalancer
+      repository: https://apecloud.github.io/helm-charts
+      version: 0.1.*
+    description: KubeBlocks Core Controller Operator.
+    digest: 8fcf24e94096a59addfb5b42d728ed0f96fac37f768aa20d336b5a8ac26bdfcd
     home: https://www.kubeblocks.io/
     icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
     keywords:
@@ -1738,4 +1790,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/wesqlcluster-0.1.1/wesqlcluster-0.1.1.tgz
     version: 0.1.1
-generated: "2022-11-29T07:27:43.284960037Z"
+generated: "2022-11-30T10:40:09.341607845Z"
