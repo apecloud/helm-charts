@@ -505,6 +505,58 @@ entries:
       artifacthub.io/operator: "true"
       artifacthub.io/prerelease: "true"
     apiVersion: v2
+    appVersion: 0.2.0-alpha.test
+    created: "2022-12-16T09:41:28.721947212Z"
+    dependencies:
+    - condition: wesql.enabled
+      name: wesql
+      repository: file://../wesql
+      version: 0.1.*
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.43.*
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 15.15 - 15.16
+    - condition: loadbalancer.enabled
+      name: loadbalancer
+      repository: file://../loadbalancer
+      version: 0.1.*
+    - condition: snapshot-controller.enabled
+      name: snapshot-controller
+      repository: https://piraeus.io/helm-charts
+      version: 1.*
+    - condition: csi-s3.enabled
+      name: csi-s3
+      repository: https://github.com/CloudVE/helm-charts/raw/master
+      version: 0.*
+    description: KubeBlocks Core Controller Operator.
+    digest: e63f2dc8e705d91e7091446ca1bccc10e578ce0d61678ec93572f0e057b99acf
+    home: https://www.kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    keywords:
+    - kubernetes
+    - database
+    - paas
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: Your Name
+      url: https://github.com/apecloud/kubeblocks/
+    name: kubeblocks
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.2.0-alpha.test/kubeblocks-0.2.0-alpha.test.tgz
+    version: 0.2.0-alpha.test
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/links: ""
+      artifacthub.io/operator: "true"
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
     appVersion: 0.2.0-alpha.replicaset.0
     created: "2022-11-21T08:48:13.492741534Z"
     dependencies:
@@ -3865,4 +3917,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/wesqlcluster-0.1.1/wesqlcluster-0.1.1.tgz
     version: 0.1.1
-generated: "2022-12-13T10:42:58.773197165Z"
+generated: "2022-12-16T09:41:29.100343173Z"
