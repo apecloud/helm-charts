@@ -82,6 +82,52 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/clickhouse-cluster-0.1.0/clickhouse-cluster-0.1.0.tgz
     version: 0.1.0
+  etcd:
+  - apiVersion: v2
+    appVersion: v3.5.6
+    created: "2022-12-20T01:53:09.413044086Z"
+    description: etcd is a strongly consistent, distributed key-value store that provides
+      a reliable way to store data that needs to be accessed by a distributed system
+      or cluster of machines.
+    digest: 4d9cdd821963971b0e55d54a6a8236349224a8b3fdda26d23d5a966c602f7a3b
+    home: https://etcd.io/
+    icon: https://bitnami.com/assets/stacks/etcd/img/etcd-stack-220x234.png
+    keywords:
+    - etcd
+    - cluster
+    - database
+    - cache
+    - key-value
+    maintainers:
+    - name: free6om
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: etcd
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/etcd-0.1.0/etcd-0.1.0.tgz
+    version: 0.1.0
+  etcd-cluster:
+  - apiVersion: v2
+    appVersion: v3.5.6
+    created: "2022-12-20T01:53:09.506604501Z"
+    description: A etcd cluster Helm chart for KubeBlocks
+    digest: 94e0adcd47404694dc3526d8891571575189c1ce632829d9c9cda3796125d20a
+    home: https://etcd.io/
+    icon: https://bitnami.com/assets/stacks/etcd/img/etcd-stack-220x234.png
+    keywords:
+    - etcd
+    - cluster
+    - database
+    - cache
+    - key-value
+    maintainers:
+    - name: free6om
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: etcd-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/etcd-cluster-0.1.0/etcd-cluster-0.1.0.tgz
+    version: 0.1.0
   kubeblocks:
   - annotations:
       artifacthub.io/changes: ""
@@ -447,6 +493,58 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.2.0-demo.0/kubeblocks-0.2.0-demo.0.tgz
     version: 0.2.0-demo.0
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/links: ""
+      artifacthub.io/operator: "true"
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
+    appVersion: 0.2.0-beta.1
+    created: "2022-12-20T01:53:09.661077848Z"
+    dependencies:
+    - condition: wesql.enabled
+      name: wesql
+      repository: file://../wesql
+      version: 0.1.*
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.43.*
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 15.15 - 15.16
+    - condition: loadbalancer.enabled
+      name: loadbalancer
+      repository: file://../loadbalancer
+      version: 0.1.*
+    - condition: snapshot-controller.enabled
+      name: snapshot-controller
+      repository: https://piraeus.io/helm-charts
+      version: 1.*
+    - condition: csi-s3.enabled
+      name: csi-s3
+      repository: https://github.com/CloudVE/helm-charts/raw/master
+      version: 0.*
+    description: KubeBlocks Core Controller Operator.
+    digest: 2f6156fe4f0fdf792a9bc3bb1e451f52ebf8b03a9ae722acec71f01c546bf678
+    home: https://www.kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    keywords:
+    - kubernetes
+    - database
+    - paas
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: Your Name
+      url: https://github.com/apecloud/kubeblocks/
+    name: kubeblocks
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.2.0-beta.1/kubeblocks-0.2.0-beta.1.tgz
+    version: 0.2.0-beta.1
   - annotations:
       artifacthub.io/changes: ""
       artifacthub.io/links: ""
@@ -3924,6 +4022,53 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/loadbalancer-0.1.0/loadbalancer-0.1.0.tgz
     version: 0.1.0
+  mongodb:
+  - apiVersion: v2
+    appVersion: 6.0.3
+    created: "2022-12-20T01:53:09.85052734Z"
+    description: MongoDB is a document database designed for ease of application development
+      and scaling.
+    digest: 07729991c4620c088c239144d60c11a1cfe11426aa25eade67a7909316ced751
+    home: https://www.mongodb.com
+    icon: https://bitnami.com/assets/stacks/mongodb/img/mongodb-stack-220x234.png
+    keywords:
+    - mongodb
+    - database
+    - nosql
+    - cluster
+    - replicaset
+    - replication
+    maintainers:
+    - name: free6om
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: mongodb
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/mongodb-0.1.0/mongodb-0.1.0.tgz
+    version: 0.1.0
+  mongodb-cluster:
+  - apiVersion: v2
+    appVersion: 6.0.3
+    created: "2022-12-20T01:53:09.938965336Z"
+    description: A MongoDB cluster Helm chart for KubeBlocks
+    digest: c99ed6840f682a78a9e1846f84edf760556b5a139d08a9f24da7428e04f1ddc0
+    home: https://www.mongodb.com
+    icon: https://bitnami.com/assets/stacks/mongodb/img/mongodb-stack-220x234.png
+    keywords:
+    - mongodb
+    - database
+    - nosql
+    - cluster
+    - replicaset
+    - replication
+    maintainers:
+    - name: free6om
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: mongodb-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/mongodb-cluster-0.1.0/mongodb-cluster-0.1.0.tgz
+    version: 0.1.0
   wesql:
   - apiVersion: v2
     appVersion: 8.0.30
@@ -4021,4 +4166,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/wesqlcluster-0.1.1/wesqlcluster-0.1.1.tgz
     version: 0.1.1
-generated: "2022-12-16T10:10:33.280345584Z"
+generated: "2022-12-20T01:53:10.115875227Z"
