@@ -1,2 +1,2 @@
-# helm-charts
-Kubeblocks Helm charts
+# KubeBlocks Helm Charts
+KubeBlocks Helm charts repo.
