@@ -187,6 +187,58 @@ entries:
       artifacthub.io/operator: "true"
       artifacthub.io/prerelease: "true"
     apiVersion: v2
+    appVersion: 0.3.0-beta.nyancat.3
+    created: "2023-01-19T13:22:33.127665313Z"
+    dependencies:
+    - condition: wesql.enabled
+      name: wesql
+      repository: file://../wesql
+      version: 0.1.*
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.43.*
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 15.15 - 15.16
+    - condition: loadbalancer.enabled
+      name: loadbalancer
+      repository: file://../loadbalancer
+      version: 0.1.*
+    - condition: snapshot-controller.enabled
+      name: snapshot-controller
+      repository: https://piraeus.io/helm-charts
+      version: 1.*
+    - condition: csi-s3.enabled
+      name: csi-s3
+      repository: https://github.com/CloudVE/helm-charts/raw/master
+      version: 0.*
+    description: KubeBlocks Core Controller Operator.
+    digest: e403f411204b2e181c04083c6a81964d0b731ba46ea5be36059bf995fc467d7d
+    home: https://www.kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    keywords:
+    - kubernetes
+    - database
+    - paas
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: Your Name
+      url: https://github.com/apecloud/kubeblocks/
+    name: kubeblocks
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.3.0-beta.nyancat.3/kubeblocks-0.3.0-beta.nyancat.3.tgz
+    version: 0.3.0-beta.nyancat.3
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/links: ""
+      artifacthub.io/operator: "true"
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
     appVersion: 0.3.0-beta.nyancat.2
     created: "2023-01-18T11:42:38.003252174Z"
     dependencies:
@@ -5943,6 +5995,17 @@ entries:
     version: 0.1.0
   nyancat:
   - apiVersion: v2
+    appVersion: 0.1.3
+    created: "2023-01-19T13:22:33.578747114Z"
+    description: A demo application for showing database cluster availibility.
+    digest: 6b54a10e3bdaff45890c2bac7c30130e15a44800d494fa6e2e846bf59c557a6e
+    kubeVersion: '>=1.22.0-0'
+    name: nyancat
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/nyancat-0.1.3/nyancat-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
     appVersion: 0.1.2
     created: "2023-01-18T11:42:38.472416275Z"
     description: A demo application for showing database cluster availibility.
@@ -6099,4 +6162,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/wesqlcluster-0.1.1/wesqlcluster-0.1.1.tgz
     version: 0.1.1
-generated: "2023-01-19T10:30:05.512804246Z"
+generated: "2023-01-19T13:22:33.78869333Z"
