@@ -351,6 +351,58 @@ entries:
       artifacthub.io/operator: "true"
       artifacthub.io/prerelease: "true"
     apiVersion: v2
+    appVersion: 0.4.0-alpha.0
+    created: "2023-02-10T06:15:09.650258078Z"
+    dependencies:
+    - condition: apecloud-mysql.enabled
+      name: apecloud-mysql
+      repository: file://../apecloud-mysql
+      version: 0.1.*
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.43.*
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 15.15 - 15.16
+    - condition: loadbalancer.enabled
+      name: loadbalancer
+      repository: file://../loadbalancer
+      version: 0.1.*
+    - condition: snapshot-controller.enabled
+      name: snapshot-controller
+      repository: https://piraeus.io/helm-charts
+      version: 1.*
+    - condition: csi-s3.enabled
+      name: csi-s3
+      repository: https://github.com/CloudVE/helm-charts/raw/master
+      version: 0.*
+    description: KubeBlocks Core Controller Operator.
+    digest: b7d95b33587b4de6988db8b8d44177b7e9e6500e24c7966ed08b04f7d0f4b5af
+    home: https://www.kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    keywords:
+    - kubernetes
+    - database
+    - paas
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: Your Name
+      url: https://github.com/apecloud/kubeblocks/
+    name: kubeblocks
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.4.0-alpha.0/kubeblocks-0.4.0-alpha.0.tgz
+    version: 0.4.0-alpha.0
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/links: ""
+      artifacthub.io/operator: "true"
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
     appVersion: 0.3.6
     created: "2023-02-04T04:48:47.964916529Z"
     dependencies:
@@ -6618,6 +6670,35 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/nyancat-0.1.0/nyancat-0.1.0.tgz
     version: 0.1.0
+  pgcluster:
+  - apiVersion: v2
+    appVersion: 14.6.0
+    created: "2023-02-10T06:15:10.269081656Z"
+    description: A PostgreSQL Helm chart for KubeBlocks.
+    digest: 52208b15bd8bfc61d5669eff3fc5a597185a697961186e28b123072959151668
+    name: pgcluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/pgcluster-0.1.1/pgcluster-0.1.1.tgz
+    version: 0.1.1
+  postgresql:
+  - apiVersion: v2
+    appVersion: 14.6.0
+    created: "2023-02-10T06:15:10.417708993Z"
+    description: A postgresql helm chart for Kubernetes
+    digest: d1d245c5c6ad5dab28ffdf8d67b2ee547dec648e880841dc88ea5801b4d1b36a
+    home: https://kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: postgresql
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/postgresql-0.1.1/postgresql-0.1.1.tgz
+    version: 0.1.1
   redis:
   - apiVersion: v2
     appVersion: 7.0.5
@@ -6763,4 +6844,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/wesqlcluster-0.1.1/wesqlcluster-0.1.1.tgz
     version: 0.1.1
-generated: "2023-02-08T06:57:15.36844251Z"
+generated: "2023-02-10T06:15:10.542716811Z"
