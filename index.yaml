@@ -195,6 +195,62 @@ entries:
       artifacthub.io/operator: "true"
       artifacthub.io/prerelease: "true"
     apiVersion: v2
+    appVersion: 0.4.0-test.1
+    created: "2023-02-14T02:22:11.626587566Z"
+    dependencies:
+    - condition: apecloud-mysql.enabled
+      name: apecloud-mysql
+      repository: file://../apecloud-mysql
+      version: 0.1.*
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: file://../postgresql
+      version: 0.1.*
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.43.*
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 15.15 - 15.16
+    - condition: loadbalancer.enabled
+      name: loadbalancer
+      repository: file://../loadbalancer
+      version: 0.1.*
+    - condition: snapshot-controller.enabled
+      name: snapshot-controller
+      repository: https://piraeus.io/helm-charts
+      version: 1.*
+    - condition: csi-s3.enabled
+      name: csi-s3
+      repository: https://github.com/CloudVE/helm-charts/raw/master
+      version: 0.*
+    description: KubeBlocks Core Controller Operator.
+    digest: 8b8e2f70ea9dc46a7cf950686488b39be6f55c5566f633c6e5a0df4e4a3a1209
+    home: https://www.kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    keywords:
+    - kubernetes
+    - database
+    - paas
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: Your Name
+      url: https://github.com/apecloud/kubeblocks/
+    name: kubeblocks
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.4.0-test.1/kubeblocks-0.4.0-test.1.tgz
+    version: 0.4.0-test.1
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/links: ""
+      artifacthub.io/operator: "true"
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
     appVersion: 0.4.0-test.0
     created: "2023-02-03T02:09:42.827539914Z"
     dependencies:
@@ -6952,4 +7008,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/wesqlcluster-0.1.1/wesqlcluster-0.1.1.tgz
     version: 0.1.1
-generated: "2023-02-12T01:26:12.243775782Z"
+generated: "2023-02-14T02:22:12.328392926Z"
