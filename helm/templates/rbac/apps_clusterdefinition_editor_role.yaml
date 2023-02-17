@@ -1,15 +1,15 @@
-# permissions for end users to edit clusterversions.
+# permissions for end users to edit clusterdefinitions.
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: {{ include "kubeblocks.fullname" . }}-clusterversion-editor-role
+  name: {{ include "kubeblocks.fullname" . }}-clusterdefinition-editor-role
   labels:
     {{- include "kubeblocks.labels" . | nindent 4 }}
 rules:
 - apiGroups:
-  - dbaas.kubeblocks.io
+  - apps.kubeblocks.io
   resources:
-  - clusterversions
+  - clusterdefinitions
   verbs:
   - create
   - delete
@@ -19,8 +19,8 @@ rules:
   - update
   - watch
 - apiGroups:
-  - dbaas.kubeblocks.io
+  - apps.kubeblocks.io
   resources:
-  - clusterversions/status
+  - clusterdefinitions/status
   verbs:
   - get

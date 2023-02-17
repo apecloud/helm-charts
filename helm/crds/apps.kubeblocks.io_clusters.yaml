@@ -5,9 +5,9 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.9.0
   creationTimestamp: null
-  name: clusters.dbaas.kubeblocks.io
+  name: clusters.apps.kubeblocks.io
 spec:
-  group: dbaas.kubeblocks.io
+  group: apps.kubeblocks.io
   names:
     categories:
     - kubeblocks
@@ -92,8 +92,8 @@ spec:
                 description: Cluster referenced ClusterVersion name.
                 pattern: ^[a-z0-9]([a-z0-9\.\-]*[a-z0-9])?$
                 type: string
-              components:
-                description: List of components you want to replace in ClusterDefinition
+              componentSpecs:
+                description: List of componentSpecs you want to replace in ClusterDefinition
                   and ClusterVersion. It will replace the field in ClusterDefinition's
                   and ClusterVersion's component if type is matching.
                 items:
@@ -124,6 +124,12 @@ spec:
                           type: array
                           x-kubernetes-list-type: set
                       type: object
+                    componentDefRef:
+                      description: ComponentDefRef reference componentDef defined
+                        in ClusterDefinition spec.
+                      maxLength: 12
+                      pattern: ^[a-z0-9]([a-z0-9\.\-]*[a-z0-9])?$
+                      type: string
                     enabledLogs:
                       description: enabledLogs indicate which log file takes effect
                         in database cluster element is the log type which defined
@@ -148,12 +154,13 @@ spec:
                       type: string
                     primaryIndex:
                       description: primaryIndex determines which index is primary
-                        when componentType is Replication, index number starts from
+                        when workloadType is Replication, index number starts from
                         zero.
                       format: int32
                       minimum: 0
                       type: integer
                     replicas:
+                      default: 1
                       description: Component replicas, use default value in ClusterDefinition
                         spec. if not specified.
                       format: int32
@@ -272,12 +279,6 @@ spec:
                         type: object
                       type: array
                       x-kubernetes-preserve-unknown-fields: true
-                    type:
-                      description: Component type name defined in ClusterDefinition
-                        spec.
-                      maxLength: 12
-                      pattern: ^[a-z0-9]([a-z0-9\.\-]*[a-z0-9])?$
-                      type: string
                     volumeClaimTemplates:
                       description: volumeClaimTemplates information for statefulset.spec.volumeClaimTemplates.
                       items:
@@ -513,9 +514,11 @@ spec:
                         type: object
                       type: array
                   required:
+                  - componentDefRef
                   - name
-                  - type
+                  - replicas
                   type: object
+                minItems: 1
                 type: array
                 x-kubernetes-list-map-keys:
                 - name
@@ -591,7 +594,7 @@ spec:
                 type: integer
               components:
                 additionalProperties:
-                  description: ClusterStatusComponent record components status information
+                  description: ClusterComponentStatus record components status information
                   properties:
                     consensusSetStatus:
                       description: consensusSetStatus role and pod name mapping.
@@ -834,14 +837,6 @@ spec:
                       support horizontalScaling, and the replicas range limit.
                     items:
                       properties:
-                        max:
-                          description: max maximum of replicas when operation is horizontalScaling.
-                          format: int32
-                          type: integer
-                        min:
-                          description: min minimum of replicas when operation is horizontalScaling.
-                          format: int32
-                          type: integer
                         name:
                           description: name reference component name.
                           type: string
@@ -881,14 +876,6 @@ spec:
                       and its volumeClaimTemplates support volumeExpansion.
                     items:
                       properties:
-                        max:
-                          description: max maximum of replicas when operation is horizontalScaling.
-                          format: int32
-                          type: integer
-                        min:
-                          description: min minimum of replicas when operation is horizontalScaling.
-                          format: int32
-                          type: integer
                         name:
                           description: name reference component name.
                           type: string
