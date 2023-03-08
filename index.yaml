@@ -251,6 +251,67 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/etcd-cluster-0.1.0/etcd-cluster-0.1.0.tgz
     version: 0.1.0
+  kafka:
+  - annotations:
+      category: Infrastructure
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 3.4.0
+    created: "2023-03-08T08:17:21.17340307Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Apache Kafka is a distributed streaming platform designed to build
+      real-time pipelines and can be used as a message broker or as a replacement
+      for a log aggregation solution for big data applications.
+    digest: 3ae90767b605c5f837739ae515722407f782b5ebea63f3e8adbfe36b8ff74b3b
+    home: https://kubeblocks.io/
+    icon: https://bitnami.com/assets/stacks/kafka/img/kafka-stack-220x234.png
+    keywords:
+    - kafka
+    - kraft
+    - streaming
+    - producer
+    - consumer
+    maintainers:
+    - name: Nash Tsai
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: kafka
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kafka-0.1.1/kafka-0.1.1.tgz
+    version: 0.1.1
+  kafka-cluster:
+  - apiVersion: v2
+    appVersion: 3.4.0
+    created: "2023-03-08T08:17:21.275815563Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: A Kafka server cluster Helm chart for KubeBlocks.
+    digest: 9570c58a6e6ba40af1b16e2887f562d610c780128ac9724555864f0cc136d207
+    home: https://kubeblocks.io/
+    icon: https://bitnami.com/assets/stacks/kafka/img/kafka-stack-220x234.png
+    keywords:
+    - kafka
+    - kraft
+    - streaming
+    - producer
+    - consumer
+    maintainers:
+    - name: Nash Tsai
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: kafka-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kafka-cluster-0.1.0/kafka-cluster-0.1.0.tgz
+    version: 0.1.0
   kubeblocks:
   - annotations:
       artifacthub.io/changes: ""
@@ -856,6 +917,66 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.4.0-beta.1-test/kubeblocks-0.4.0-beta.1-test.tgz
     version: 0.4.0-beta.1-test
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/links: ""
+      artifacthub.io/operator: "true"
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
+    appVersion: 0.4.0-beta.8
+    created: "2023-03-08T08:17:21.48919185Z"
+    dependencies:
+    - condition: apecloud-mysql.enabled
+      name: apecloud-mysql
+      repository: file://../apecloud-mysql
+      version: 0.1.*
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: file://../postgresql
+      version: 0.1.*
+    - condition: loadbalancer.enabled
+      name: loadbalancer
+      repository: file://../loadbalancer
+      version: 0.1.*
+    - condition: grafana.enabled
+      name: grafana
+      repository: ""
+      version: 6.43.*
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: ""
+      version: 15.15 - 15.16
+    - condition: snapshot-controller.enabled
+      name: snapshot-controller
+      repository: ""
+      version: 1.*
+    - condition: csi-s3.enabled
+      name: csi-s3
+      repository: ""
+      version: 0.*
+    - condition: alertmanager-webhook-adaptor.enabled
+      name: alertmanager-webhook-adaptor
+      repository: ""
+      version: 0.1.*
+    description: KubeBlocks Core Controller Operator.
+    digest: 42ab4773a8319316a520cb8c4aacb6efaada7b9bd734ea4aa8d17ad3bf8782aa
+    home: https://www.kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    keywords:
+    - kubernetes
+    - database
+    - paas
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: Your Name
+      url: https://github.com/apecloud/kubeblocks/
+    name: kubeblocks
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.4.0-beta.8/kubeblocks-0.4.0-beta.8.tgz
+    version: 0.4.0-beta.8
   - annotations:
       artifacthub.io/changes: ""
       artifacthub.io/links: ""
@@ -8523,6 +8644,26 @@ entries:
     version: 0.1.0-alpha
   loadbalancer:
   - apiVersion: v2
+    appVersion: 0.1.1
+    created: "2023-03-08T08:17:21.611430842Z"
+    description: A loadbalancer Helm chart for Kubernetes
+    digest: 313a679a12a2f89f164a3567e0a9d014b1728374deac0e5612a7f83bf68f221b
+    home: https://www.kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    keywords:
+    - kubernetes
+    - database
+    - paas
+    - ""
+    kubeVersion: '>=1.20.0-0'
+    name: loadbalancer
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/loadbalancer-0.1.1/loadbalancer-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-11-01T03:52:55.416999139Z"
     description: A loadbalancer Helm chart for Kubernetes
@@ -8808,4 +8949,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/wesqlcluster-0.1.1/wesqlcluster-0.1.1.tgz
     version: 0.1.1
-generated: "2023-03-08T06:37:27.520431534Z"
+generated: "2023-03-08T08:17:22.281336893Z"
