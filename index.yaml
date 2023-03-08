@@ -34,6 +34,30 @@ entries:
   apecloud-mysql:
   - apiVersion: v2
     appVersion: 8.0.30
+    created: "2023-03-08T11:48:35.95363788Z"
+    description: ApeCloud MySQL is fully compatible with MySQL syntax and supports
+      single-availability zone deployment, double-availability zone deployment, and
+      multiple-availability zone deployment. Based on the Paxos consensus protocol,
+      ApeCloud MySQL realizes automatic leader election, log synchronization, and
+      strict consistency. ApeCloud MySQL is the optimum choice for the production
+      environment since it can automatically perform a high-availability switch to
+      maintain business continuity when container exceptions, server exceptions, or
+      availability zone exceptions occur.
+    digest: 0382c7f85989ed7a8d19768aec9e16d1d2a553e4760c864023ccdfac0b650722
+    home: https://kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: apecloud-mysql
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/apecloud-mysql-0.4.0-beta.8/apecloud-mysql-0.4.0-beta.8.tgz
+    version: 0.4.0-beta.8
+  - apiVersion: v2
+    appVersion: 8.0.30
     created: "2023-02-08T04:02:56.16343543Z"
     description: ApeCloud MySQL is fully compatible with MySQL syntax and supports
       single-availability zone deployment, double-availability zone deployment, and
@@ -81,6 +105,16 @@ entries:
     - https://github.com/apecloud/helm-charts/releases/download/apecloud-mysql-0.1.7/apecloud-mysql-0.1.7.tgz
     version: 0.1.7
   apecloud-mysql-cluster:
+  - apiVersion: v2
+    appVersion: 8.0.30
+    created: "2023-03-08T11:48:36.075576191Z"
+    description: An ApeCloud MySQL Cluster Helm chart for KubeBlocks.
+    digest: 089d726b893b75791dde8a7145b8049a69540d95cc86c177322ca53bd6da8e96
+    name: apecloud-mysql-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/apecloud-mysql-cluster-0.4.0-beta.8/apecloud-mysql-cluster-0.4.0-beta.8.tgz
+    version: 0.4.0-beta.8
   - apiVersion: v2
     appVersion: 8.0.30
     created: "2023-02-03T02:09:42.005275478Z"
@@ -960,6 +994,66 @@ entries:
       version: 0.1.*
     description: KubeBlocks Core Controller Operator.
     digest: 42ab4773a8319316a520cb8c4aacb6efaada7b9bd734ea4aa8d17ad3bf8782aa
+    home: https://www.kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    keywords:
+    - kubernetes
+    - database
+    - paas
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: Your Name
+      url: https://github.com/apecloud/kubeblocks/
+    name: kubeblocks
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.4.0-beta.8/kubeblocks-0.4.0-beta.8.tgz
+    version: 0.4.0-beta.8
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/links: ""
+      artifacthub.io/operator: "true"
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
+    appVersion: 0.4.0-beta.8
+    created: "2023-03-08T11:48:37.498748798Z"
+    dependencies:
+    - condition: apecloud-mysql.enabled
+      name: apecloud-mysql
+      repository: file://../apecloud-mysql
+      version: 0.4.0-beta.8
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: file://../postgresql
+      version: 0.4.0-beta.8
+    - condition: loadbalancer.enabled
+      name: loadbalancer
+      repository: file://../loadbalancer
+      version: 0.1.*
+    - condition: grafana.enabled
+      name: grafana
+      repository: ""
+      version: 6.43.*
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: ""
+      version: 15.15 - 15.16
+    - condition: snapshot-controller.enabled
+      name: snapshot-controller
+      repository: ""
+      version: 1.*
+    - condition: csi-s3.enabled
+      name: csi-s3
+      repository: ""
+      version: 0.*
+    - condition: alertmanager-webhook-adaptor.enabled
+      name: alertmanager-webhook-adaptor
+      repository: ""
+      version: 0.1.*
+    description: KubeBlocks Core Controller Operator.
+    digest: 7afd4b65e35d38fa4aa648f0ecefbb871a6b6939b2148b93ca462d10263c1b83
     home: https://www.kubeblocks.io/
     icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
     keywords:
@@ -8778,6 +8872,16 @@ entries:
   pgcluster:
   - apiVersion: v2
     appVersion: 14.6.0
+    created: "2023-03-08T11:48:38.143743693Z"
+    description: A PostgreSQL Helm chart for KubeBlocks.
+    digest: d63bccf51507db8dfbe54d5f8993e81e37ea3ab1c6bbafeca1bee4ef6c7d00d5
+    name: pgcluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/pgcluster-0.4.0-beta.8/pgcluster-0.4.0-beta.8.tgz
+    version: 0.4.0-beta.8
+  - apiVersion: v2
+    appVersion: 14.6.0
     created: "2023-02-10T06:15:10.269081656Z"
     description: A PostgreSQL Helm chart for KubeBlocks.
     digest: 52208b15bd8bfc61d5669eff3fc5a597185a697961186e28b123072959151668
@@ -8787,6 +8891,23 @@ entries:
     - https://github.com/apecloud/helm-charts/releases/download/pgcluster-0.1.1/pgcluster-0.1.1.tgz
     version: 0.1.1
   postgresql:
+  - apiVersion: v2
+    appVersion: 14.6.0
+    created: "2023-03-08T11:48:38.274937272Z"
+    description: A postgresql helm chart for Kubernetes
+    digest: 2f227ffa437ddd2ccaa7edbb2de414afa196ad2e608d40c792e522df7c264f0e
+    home: https://kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: postgresql
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/postgresql-0.4.0-beta.8/postgresql-0.4.0-beta.8.tgz
+    version: 0.4.0-beta.8
   - apiVersion: v2
     appVersion: 14.6.0
     created: "2023-02-10T06:15:10.417708993Z"
@@ -8949,4 +9070,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/wesqlcluster-0.1.1/wesqlcluster-0.1.1.tgz
     version: 0.1.1
-generated: "2023-03-08T08:17:22.281336893Z"
+generated: "2023-03-08T11:48:38.402770313Z"
