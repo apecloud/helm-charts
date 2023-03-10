@@ -273,6 +273,22 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/csi-hostpath-driver-1.11.0/csi-hostpath-driver-1.11.0.tgz
     version: 1.11.0
+  csi-s3:
+  - apiVersion: v1
+    appVersion: 0.31.3
+    created: "2023-03-10T06:34:10.960701307Z"
+    description: Container Storage Interface (CSI) driver for S3 volumes
+    digest: 1136bdc13702d8babe70c42ba222e5a795c144024c739eb27c07b9a3ddd2d96b
+    home: https://github.com/yandex-cloud/k8s-csi-s3
+    icon: https://raw.githubusercontent.com/yandex-cloud/geesefs/master/doc/geesefs.png
+    keywords:
+    - s3
+    name: csi-s3
+    sources:
+    - https://github.com/yandex-cloud/k8s-csi-s3/deploy/helm
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/csi-s3-0.31.3/csi-s3-0.31.3.tgz
+    version: 0.31.3
   etcd:
   - apiVersion: v2
     appVersion: v3.5.6
@@ -319,6 +335,33 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/etcd-cluster-0.1.0/etcd-cluster-0.1.0.tgz
     version: 0.1.0
+  grafana:
+  - apiVersion: v2
+    appVersion: 9.2.4
+    created: "2023-03-10T06:34:11.330349494Z"
+    description: The leading tool for querying and visualizing time series and metrics.
+    digest: dc45d75ff06f6ca82a3c7dc063ebe73f8e4c6126c5a131a51ed35294743eb087
+    home: https://grafana.net
+    icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
+    kubeVersion: ^1.8.0-0
+    maintainers:
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    - email: rluckie@cisco.com
+      name: rtluckie
+    - email: maor.friedman@redhat.com
+      name: maorfr
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: mail@torstenwalter.de
+      name: torstenwalter
+    name: grafana
+    sources:
+    - https://github.com/grafana/grafana
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/grafana-6.43.5/grafana-6.43.5.tgz
+    version: 6.43.5
   kafka:
   - annotations:
       category: Infrastructure
@@ -449,6 +492,33 @@ entries:
       version: 0.1.*
     description: KubeBlocks Core Controller Operator.
     digest: 1114500ebbb8d8bc22478f2f1d75d3f0d1df38f986e8b5516e18a6fd2c879482
+    home: https://www.kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    keywords:
+    - kubernetes
+    - database
+    - paas
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: Your Name
+      url: https://github.com/apecloud/kubeblocks/
+    name: kubeblocks
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.4.0-beta.10/kubeblocks-0.4.0-beta.10.tgz
+    version: 0.4.0-beta.10
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/links: ""
+      artifacthub.io/operator: "true"
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
+    appVersion: 0.4.0-beta.10
+    created: "2023-03-10T06:34:11.694934167Z"
+    description: KubeBlocks Core Controller Operator.
+    digest: 6bea71c054f05175e064656a6045bcddd0a0ab4733520d19b92859e85153c216
     home: https://www.kubeblocks.io/
     icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
     keywords:
@@ -7058,6 +7128,39 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/postgresql-0.1.1/postgresql-0.1.1.tgz
     version: 0.1.1
+  prometheus:
+  - apiVersion: v2
+    appVersion: 2.39.1
+    created: "2023-03-10T06:34:12.501933721Z"
+    dependencies:
+    - condition: kubeStateMetrics.enabled
+      name: kube-state-metrics
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 4.13.*
+    description: Prometheus is a monitoring system and time series database.
+    digest: dd28cba7e126f1fb5339f9bdca3119fc8e36e380c4d69c1bb8574f9cdeeac210
+    home: https://prometheus.io/
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    maintainers:
+    - email: gianrubio@gmail.com
+      name: gianrubio
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: naseem@transit.app
+      name: naseemkullah
+    name: prometheus
+    sources:
+    - https://github.com/prometheus/alertmanager
+    - https://github.com/prometheus/prometheus
+    - https://github.com/prometheus/pushgateway
+    - https://github.com/prometheus/node_exporter
+    - https://github.com/kubernetes/kube-state-metrics
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/prometheus-15.16.1/prometheus-15.16.1.tgz
+    version: 15.16.1
   redis:
   - apiVersion: v2
     appVersion: 7.0.5
@@ -7079,4 +7182,30 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/redis-0.1.0/redis-0.1.0.tgz
     version: 0.1.0
-generated: "2023-03-10T05:18:27.772201256Z"
+  snapshot-controller:
+  - annotations:
+      artifacthub.io/recommendations: |
+        - url: https://artifacthub.io/packages/helm/piraeus-charts/snapshot-validation-webhook
+    apiVersion: v2
+    appVersion: v6.2.1
+    created: "2023-03-10T06:34:12.71485799Z"
+    description: 'Deploys a Snapshot Controller in a cluster. Snapshot Controllers
+      are often bundled with the Kubernetes distribution, this chart is meant for
+      cases where it is not. '
+    digest: 713db15124a764322003c9fa90b0949d79966803f203e09911462a020fdbf8fa
+    home: https://github.com/piraeusdatastore/helm-charts
+    icon: https://raw.githubusercontent.com/piraeusdatastore/piraeus/master/artwork/sandbox-artwork/icon/color.svg
+    keywords:
+    - storage
+    - snapshot
+    maintainers:
+    - name: The Piraeus Maintainers
+      url: https://github.com/piraeusdatastore/
+    name: snapshot-controller
+    sources:
+    - https://github.com/kubernetes-csi/external-snapshotter/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/snapshot-controller-1.7.2/snapshot-controller-1.7.2.tgz
+    version: 1.7.2
+generated: "2023-03-10T06:34:12.715552692Z"
