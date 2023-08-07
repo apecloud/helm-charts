@@ -303,6 +303,25 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: 8.0.30
+    created: "2023-08-07T06:50:04.30088061Z"
+    description: ApeCloud MySQL is a database that is compatible with MySQL syntax
+      and achieves high availability through the utilization of the RAFT consensus
+      protocol.
+    digest: 211b566b812ac02ca4371bb290d47f487a860306f6612a5df48823538e22a8b8
+    home: https://kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: apecloud-mysql
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/apecloud-mysql-0.6.0-beta.27/apecloud-mysql-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: 8.0.30
     created: "2023-08-07T02:42:39.566550974Z"
     description: ApeCloud MySQL is a database that is compatible with MySQL syntax
       and achieves high availability through the utilization of the RAFT consensus
@@ -1451,6 +1470,39 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/apecloud-mysql-cluster-0.6.0-test.redis/apecloud-mysql-cluster-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 8.0.30
+    created: "2023-08-07T06:50:04.38505823Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: ApeCloud MySQL is a database that is compatible with MySQL syntax
+      and achieves high availability through the utilization of the RAFT consensus
+      protocol.
+    digest: ea08bc75ceaf443ae8315ebbc1b63ef068e43869aef54f6eaf290b6d8aafcb4f
+    home: https://github.com/apecloud/kubeblocks/tree/main/deploy/apecloud-mysql-cluster
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - mysql
+    - database
+    - sql
+    - cluster
+    - raft
+    maintainers:
+    - name: ApeCloud
+      url: https://kubeblocks.io/
+    name: apecloud-mysql-cluster
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    - https://github.com/apecloud/kubeblocks/tree/main/deploy/apecloud-mysql
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/apecloud-mysql-cluster-0.6.0-beta.27/apecloud-mysql-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - annotations:
       category: Database
     apiVersion: v2
@@ -3492,6 +3544,17 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2023-08-07T06:50:04.485702915Z"
+    description: A demo application for ChatGPT plugin.
+    digest: 019a832e76ce1dc8cfe08ee664c4a5cc7d40ad299ee61ab107c3470e1ebd2b27
+    kubeVersion: '>=1.22.0-0'
+    name: chatgpt-retrieval-plugin
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/chatgpt-retrieval-plugin-0.6.0-beta.27/chatgpt-retrieval-plugin-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2023-08-07T02:42:39.758276482Z"
     description: A demo application for ChatGPT plugin.
     digest: 77acebc38b771304b54b5ef937ae7caeace15ddb3f84ed24b667f36bfe8e55f2
@@ -4174,6 +4237,34 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/clickhouse-0.6.0-test.redis/clickhouse-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 22.9.4
+    created: "2023-08-07T06:50:04.607231355Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: ClickHouse is an open-source column-oriented OLAP database management
+      system. Use it to boost your database performance while providing linear scalability
+      and hardware efficiency.
+    digest: c785aed28c0d9faf2f12c533a45a77204c0c9469d90b89671344c43cd82b1254
+    home: https://clickhouse.com/
+    icon: https://bitnami.com/assets/stacks/clickhouse/img/clickhouse-stack-220x234.png
+    keywords:
+    - database
+    - sharding
+    maintainers:
+    - name: Nash Tsai
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: clickhouse
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/clickhouse-0.6.0-beta.27/clickhouse-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - annotations:
       category: Database
     apiVersion: v2
@@ -5809,6 +5900,24 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: 22.9.4
+    created: "2023-08-07T06:50:04.710977233Z"
+    description: A ClickHouse cluster Helm chart for KubeBlocks.
+    digest: d0d90cf99910a6e7cca46fbd228312b2626970ac4220c9855120bc475ad0a4e5
+    home: https://clickhouse.com/
+    icon: https://bitnami.com/assets/stacks/clickhouse/img/clickhouse-stack-220x234.png
+    keywords:
+    - database
+    - sharding
+    maintainers:
+    - name: Nash Tsai
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: clickhouse-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/clickhouse-cluster-0.6.0-beta.27/clickhouse-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: 22.9.4
     created: "2023-08-07T02:42:39.943488761Z"
     description: A ClickHouse cluster Helm chart for KubeBlocks.
     digest: 020832bf32e1a7e855af7416ae45c1450ad56cd8b7cfd82817fa9a2852e52c99
@@ -6856,6 +6965,16 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: v1.11.0
+    created: "2023-08-07T06:50:04.809159523Z"
+    description: A Helm chart for Kubernetes
+    digest: e6e96ab8e506b5b04eaa7ace4633be3370f70f478db9b9ca503708c0a3cf97b0
+    name: csi-hostpath-driver
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/csi-hostpath-driver-0.6.0-beta.27/csi-hostpath-driver-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: v1.11.0
     created: "2023-08-07T02:42:40.040805299Z"
     description: A Helm chart for Kubernetes
     digest: edae82ca2abe334b45df5e443f2d6e80a8d6af507b310ac5eb57b17f758ddad4
@@ -7455,6 +7574,21 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/csi-s3-0.6.0-test.redis/csi-s3-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - apiVersion: v1
+    appVersion: 0.31.4
+    created: "2023-08-07T06:50:04.905377417Z"
+    description: Container Storage Interface (CSI) driver for S3 volumes
+    digest: a930dc9a15adc94af5d866b0dc06ed4bc102d8cd819ac6de176446848e74da8a
+    home: https://github.com/yandex-cloud/k8s-csi-s3
+    icon: https://raw.githubusercontent.com/yandex-cloud/geesefs/master/doc/geesefs.png
+    keywords:
+    - s3
+    name: csi-s3
+    sources:
+    - https://github.com/yandex-cloud/k8s-csi-s3/deploy/helm
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/csi-s3-0.6.0-beta.27/csi-s3-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - apiVersion: v1
     appVersion: 0.31.4
     created: "2023-08-07T02:42:40.120540829Z"
@@ -8349,6 +8483,25 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/delphic-0.6.0-test.redis/delphic-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-08-07T06:50:05.005852902Z"
+    dependencies:
+    - alias: pgcluster
+      name: postgresql-cluster
+      repository: file://../postgresql-cluster
+      version: ~0.6.0-0
+    - name: redis-cluster
+      repository: file://../redis-cluster
+      version: ~0.6.0-0
+    description: A simple framework to use LlamaIndex to build and deploy LLM agents
+      that can be used to analyze and manipulate text data from documents.
+    digest: 6592ad17fb44da7b891c7851e4ae9dc02f2d38db7531f870083158198ee7a752
+    name: delphic
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/delphic-0.6.0-beta.27/delphic-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-08-07T02:42:40.255834353Z"
@@ -9643,6 +9796,29 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/etcd-0.6.0-test.redis/etcd-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - apiVersion: v2
+    appVersion: v3.5.6
+    created: "2023-08-07T06:50:05.168525454Z"
+    description: etcd is a strongly consistent, distributed key-value store that provides
+      a reliable way to store data that needs to be accessed by a distributed system
+      or cluster of machines.
+    digest: b5b211026e677130030253786b004a4edda845167509a98e5d9ca3745d1fac4d
+    home: https://etcd.io/
+    icon: https://bitnami.com/assets/stacks/etcd/img/etcd-stack-220x234.png
+    keywords:
+    - etcd
+    - cluster
+    - database
+    - cache
+    - key-value
+    maintainers:
+    - name: free6om
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: etcd
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/etcd-0.6.0-beta.27/etcd-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - apiVersion: v2
     appVersion: v3.5.6
     created: "2023-08-07T02:42:40.348736439Z"
@@ -10999,6 +11175,27 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: v3.5.6
+    created: "2023-08-07T06:50:05.351421862Z"
+    description: A etcd cluster Helm chart for KubeBlocks
+    digest: 4e96dcd482e4ad1da0c2e1f0f643c8b7ec0bf73bbad2d5567dac85a673831f69
+    home: https://etcd.io/
+    icon: https://bitnami.com/assets/stacks/etcd/img/etcd-stack-220x234.png
+    keywords:
+    - etcd
+    - cluster
+    - database
+    - cache
+    - key-value
+    maintainers:
+    - name: free6om
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: etcd-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/etcd-cluster-0.6.0-beta.27/etcd-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: v3.5.6
     created: "2023-08-07T02:42:40.426143294Z"
     description: A etcd cluster Helm chart for KubeBlocks
     digest: 2c80b5c33e921e39effb9c50a42ba2a6a2f3ae4f277af4f24ab55e6d14c994fc
@@ -12319,6 +12516,39 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/kafka-0.6.0-test.redis/kafka-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - annotations:
+      category: Infrastructure
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 3.3.2
+    created: "2023-08-07T06:50:05.452439046Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Apache Kafka is a distributed streaming platform designed to build
+      real-time pipelines and can be used as a message  broker or as a replacement
+      for a log aggregation solution for big data applications. This chart provides
+      KubeBlocks' ClusterDefinition API manifests.
+    digest: b768a101cd085967d278db961da60d90dde3128fcc32cd24c9b4f09de07a9d01
+    home: https://kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - kafka
+    - kraft
+    - streaming
+    - producer
+    - consumer
+    maintainers:
+    - name: Nash Tsai
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: kafka
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kafka-0.6.0-beta.27/kafka-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - annotations:
       category: Infrastructure
       licenses: Apache-2.0
@@ -14288,6 +14518,32 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: 3.3.2
+    created: "2023-08-07T06:50:05.594234643Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: A Kafka server cluster Helm chart for KubeBlocks.
+    digest: 69b4e0ce8e58cd9e340f659a852b1d5d36b55c7f14e3bc5b8a313f4a5c4ba8d2
+    home: https://github.com/apecloud/kubeblocks/tree/main/deploy/kafka-cluster
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - kafka
+    - kraft
+    - streaming
+    - producer
+    - consumer
+    maintainers:
+    - name: ApeCloud
+      url: https://kubeblocks.io/
+    name: kafka-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kafka-cluster-0.6.0-beta.27/kafka-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: 3.3.2
     created: "2023-08-07T02:42:40.589858208Z"
     dependencies:
     - alias: extra
@@ -15686,6 +15942,16 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2023-08-07T06:50:05.708078799Z"
+    description: A Library Helm chart for KubeBlocks.
+    digest: 4cb9b0bd0a04ab7313a4f4ed46a53b08c8cbba026d1ea88e65ba597f977e8c63
+    name: kblib
+    type: library
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kblib-0.6.0-beta.27/kblib-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2023-08-07T02:42:40.685096868Z"
     description: A Library Helm chart for KubeBlocks.
     digest: 8578b76308dddaaef09d76f39af8f5896208b2c512094942128ef2043591cb04
@@ -16318,6 +16584,36 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.6.0-test.redis/kubeblocks-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - annotations:
+      artifacthub.io/changes: ""
+      artifacthub.io/links: ""
+      artifacthub.io/operator: "true"
+      artifacthub.io/prerelease: "true"
+    apiVersion: v2
+    appVersion: 0.6.0-beta.27
+    created: "2023-08-07T06:50:05.8479597Z"
+    description: KubeBlocks Core Controller Operator.
+    digest: 24235823f92e6a723aa0a235cc6b7ce81b51d9ebc37e8291bac1a77bc5a02e90
+    home: https://www.kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - kubernetes
+    - database
+    - streaming
+    - messsage queue
+    - paas
+    - platform
+    kubeVersion: '>=1.22.0-0'
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: kubeblocks
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-0.6.0-beta.27/kubeblocks-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - annotations:
       artifacthub.io/changes: ""
       artifacthub.io/links: ""
@@ -18037,6 +18333,23 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: 2.2.4
+    created: "2023-08-07T06:50:05.943408296Z"
+    description: .
+    digest: 56fc8b89623c751d70593da2280964e336abaae3ee81c1659617944f5e85bdd1
+    home: https://milvus.io/
+    icon: https://github.com/milvus-io/artwork/blob/master/horizontal/color/milvus-horizontal-color.png
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: milvus
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/milvus-0.6.0-beta.27/milvus-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: 2.2.4
     created: "2023-08-07T02:42:40.907876037Z"
     description: .
     digest: ce4caaaf3f1f44f5c11e9e021ccb29cdfbccf6b999e6ef483a0bf2171d313c94
@@ -19025,6 +19338,16 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/milvus-cluster-0.6.0-test.redis/milvus-cluster-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - apiVersion: v2
+    appVersion: 2.2.4
+    created: "2023-08-07T06:50:06.046906675Z"
+    description: A Milvus cluster Helm chart for KubeBlocks.
+    digest: 122dfa7eb6d4c2cd2d5ab958f8003b5265bbddbba977d0b85e0da5d80ac889b4
+    name: milvus-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/milvus-cluster-0.6.0-beta.27/milvus-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - apiVersion: v2
     appVersion: 2.2.4
     created: "2023-08-07T02:42:40.998752745Z"
@@ -20102,6 +20425,29 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/mongodb-0.6.0-test.redis/mongodb-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - apiVersion: v2
+    appVersion: 5.0.14
+    created: "2023-08-07T06:50:06.155514342Z"
+    description: MongoDB is a document database designed for ease of application development
+      and scaling.
+    digest: 507a5d3373a3c9d51aac4582b3c5ab33aee9b021544207570fdd9842da436c6c
+    home: https://www.mongodb.com
+    icon: https://bitnami.com/assets/stacks/mongodb/img/mongodb-stack-220x234.png
+    keywords:
+    - mongodb
+    - database
+    - nosql
+    - cluster
+    - replicaset
+    - replication
+    maintainers:
+    - name: xuriwuyun
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: mongodb
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/mongodb-0.6.0-beta.27/mongodb-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - apiVersion: v2
     appVersion: 5.0.14
     created: "2023-08-07T02:42:41.084585509Z"
@@ -21478,6 +21824,38 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/mongodb-cluster-0.6.0-test.redis/mongodb-cluster-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 5.0.14
+    created: "2023-08-07T06:50:06.2688185Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: A MongoDB cluster Helm chart for KubeBlocks
+    digest: 75e0f7b32cf0aec3a0fc3b0316d6b382fed4625c8992d92697e4ca321a0ee958
+    home: https://github.com/apecloud/kubeblocks/tree/main/deploy/mongodb-cluster
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - mongodb
+    - database
+    - nosql
+    - cluster
+    - replicaset
+    - replication
+    maintainers:
+    - name: ApeCloud
+      url: https://kubeblocks.io/
+    name: mongodb-cluster
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    - https://github.com/apecloud/kubeblocks/tree/main/deploy/mongodb
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/mongodb-cluster-0.6.0-beta.27/mongodb-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - annotations:
       category: Database
     apiVersion: v2
@@ -23381,6 +23759,28 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: v3.5.0
+    created: "2023-08-07T06:50:06.366048292Z"
+    description: Nebula Graph Cluster Helm Chart for KubeBlocks.
+    digest: 613c477dd948e33254f6d9d3124be85562d488a8cd8a689dead85b52e80a2f10
+    home: https://nebula-graph.io
+    keywords:
+    - kubernetes
+    - nebula-graph
+    - database
+    - graph database
+    maintainers:
+    - email: shanshan.ying@apecloud.com
+      name: Shanshan Ying
+    - email: xuntao.cheng@vesoft.com
+      name: Xuntao Cheng
+    name: nebula
+    sources:
+    - https://github.com/vesoft-inc/nebula
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/nebula-0.6.0-beta.27/nebula-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: v3.5.0
     created: "2023-08-07T02:42:41.264860441Z"
     description: Nebula Graph Cluster Helm Chart for KubeBlocks.
     digest: be64216cb89f963839f767e4ec1589f9507e8d3b8995553805ada18bcfeac038
@@ -24666,6 +25066,21 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: v3.5.0
+    created: "2023-08-07T06:50:06.471285667Z"
+    description: Nebula Graph Cluster Helm Chart for KubeBlocks.
+    digest: 29bc88c3c6c11c28027dcd0f462983dfb12c3bf0054b0fda856e474ebbd9672e
+    maintainers:
+    - email: shanshan.ying@apecloud.com
+      name: Shanshan Ying
+    - email: xuntao.cheng@vesoft.com
+      name: Xuntao Cheng
+    name: nebula-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/nebula-cluster-0.6.0-beta.27/nebula-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: v3.5.0
     created: "2023-08-07T02:42:41.356443342Z"
     description: Nebula Graph Cluster Helm Chart for KubeBlocks.
     digest: 3151817cb3ba9c8a0634d19e7672a211f10e7365cca40a9f07f036f2fdc8c980
@@ -25543,6 +25958,17 @@ entries:
     - https://github.com/apecloud/helm-charts/releases/download/nyancat-0.6.0-test.redis/nyancat-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
   - apiVersion: v2
+    appVersion: 0.6.0-beta.27
+    created: "2023-08-07T06:50:06.620573347Z"
+    description: A demo application for showing database cluster availability.
+    digest: 7614ed7b390a4dd42a0a6659cccd0a2f190933a07e23cc50e51d893aef4c4b52
+    kubeVersion: '>=1.22.0-0'
+    name: nyancat
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/nyancat-0.6.0-beta.27/nyancat-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
     appVersion: 0.6.0-beta.26
     created: "2023-08-07T02:42:41.440241028Z"
     description: A demo application for showing database cluster availability.
@@ -26192,6 +26618,16 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: 2.7.0
+    created: "2023-08-07T06:50:06.715120445Z"
+    description: A Helm chart for OpenSearch
+    digest: 38d6bf27153462c61e1db7cd54eca37107a2745f0ec514a508429f824ce60a51
+    name: opensearch
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/opensearch-0.6.0-beta.27/opensearch-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: 2.7.0
     created: "2023-08-07T02:42:41.515731104Z"
     description: A Helm chart for OpenSearch
     digest: 556595bc1a6b7a28f6e65176b3bd5405786a2980d462707f10796eab412932a6
@@ -26741,6 +27177,16 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/opensearch-cluster-0.6.0-test.redis/opensearch-cluster-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - apiVersion: v2
+    appVersion: 2.7.0
+    created: "2023-08-07T06:50:06.856926442Z"
+    description: A Helm chart for OpenSearch Cluster
+    digest: ddf7e1235ed7d63713409c2c43bfe43c3ab76ce99982b0972de8bd30a04b2f31
+    name: opensearch-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/opensearch-cluster-0.6.0-beta.27/opensearch-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - apiVersion: v2
     appVersion: 2.7.0
     created: "2023-08-07T02:42:41.591952872Z"
@@ -27601,6 +28047,27 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/postgresql-0.6.0-test.redis/postgresql-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - annotations:
+      kubeblocks.io/clusterVersions: 14.7.2,12.14.1
+      kubeblocks.io/multiCV: "true"
+    apiVersion: v2
+    appVersion: 14.7.2
+    created: "2023-08-07T06:50:06.958491924Z"
+    description: A PostgreSQL (with Patroni HA) cluster definition Helm chart for
+      Kubernetes
+    digest: 9f54e4d56c761d2e96b49a81e1cca6e8deef7cb8288787871fe9dc55fb5903f3
+    home: https://kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: postgresql
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/postgresql-0.6.0-beta.27/postgresql-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - annotations:
       kubeblocks.io/clusterVersions: 14.7.2,12.14.1
       kubeblocks.io/multiCV: "true"
@@ -28871,6 +29338,39 @@ entries:
       kubeblocks.io/multiCV: "true"
     apiVersion: v2
     appVersion: 14.8.0
+    created: "2023-08-07T06:50:07.051992624Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: A PostgreSQL (with Patroni HA) cluster Helm chart for KubeBlocks.
+    digest: 3a03c973e31eeb9fd686bae3f6d55ead8cb0786a43eb1641fa0fe959f4e7da02
+    home: https://github.com/apecloud/kubeblocks/tree/main/deploy/postgresql-cluster
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - postgresql
+    - database
+    - sql
+    - replication
+    - patroni
+    maintainers:
+    - name: ApeCloud
+      url: https://kubeblocks.io/
+    name: postgresql-cluster
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    - https://github.com/apecloud/kubeblocks/tree/main/deploy/postgresql
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/postgresql-cluster-0.6.0-beta.27/postgresql-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - annotations:
+      category: Database
+      kubeblocks.io/clusterVersions: 14.8.0,12.15.0
+      kubeblocks.io/multiCV: "true"
+    apiVersion: v2
+    appVersion: 14.8.0
     created: "2023-08-07T02:42:41.77362149Z"
     dependencies:
     - alias: extra
@@ -29597,14 +30097,14 @@ entries:
       kubeblocks.io/multiCV: "true"
     apiVersion: v2
     appVersion: 14.8.0
-    created: "2023-07-18T03:33:59.199148774Z"
+    created: "2023-07-18T01:20:55.711364604Z"
     dependencies:
     - alias: extra
       name: kblib
       repository: file://../kblib
       version: 0.1.0
     description: A PostgreSQL (with Patroni HA) cluster Helm chart for KubeBlocks.
-    digest: 06241d9b7d0d948b00a3be51b2d57d4263823b904778ebe7f21ed98a3ffcccee
+    digest: 873a210a309739f08c697706dfb9d9a4c9c19ae9856825c0ee24efb112dae4bf
     home: https://github.com/apecloud/kubeblocks/tree/main/deploy/postgresql-cluster
     icon: https://kubeblocks.io/img/logo.png
     keywords:
@@ -29630,14 +30130,14 @@ entries:
       kubeblocks.io/multiCV: "true"
     apiVersion: v2
     appVersion: 14.8.0
-    created: "2023-07-18T01:20:55.711364604Z"
+    created: "2023-07-18T03:33:59.199148774Z"
     dependencies:
     - alias: extra
       name: kblib
       repository: file://../kblib
       version: 0.1.0
     description: A PostgreSQL (with Patroni HA) cluster Helm chart for KubeBlocks.
-    digest: 873a210a309739f08c697706dfb9d9a4c9c19ae9856825c0ee24efb112dae4bf
+    digest: 06241d9b7d0d948b00a3be51b2d57d4263823b904778ebe7f21ed98a3ffcccee
     home: https://github.com/apecloud/kubeblocks/tree/main/deploy/postgresql-cluster
     icon: https://kubeblocks.io/img/logo.png
     keywords:
@@ -31448,6 +31948,34 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 2.11.2
+    created: "2023-08-07T06:50:07.142271531Z"
+    description: Apache Pulsar is an open-source, distributed messaging and streaming
+      platform built for the cloud.
+    digest: 27145d3e3dcb0d547f2b60126c5fa184b32b02b3c573b66a1411a47ee8cb98eb
+    home: https://pulsar.apache.org/
+    icon: https://pulsar.apache.org/img/logo-black.svg
+    keywords:
+    - pulsar
+    - kafka
+    - kop
+    - streaming
+    - messaging
+    - cloud-native
+    - message queue
+    - producer
+    - consumer
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: pulsar
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/pulsar-0.6.0-beta.27/pulsar-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 2.11.2
     created: "2023-08-07T02:42:41.86617208Z"
     description: Apache Pulsar is an open-source, distributed messaging and streaming
       platform built for the cloud.
@@ -32205,6 +32733,36 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/pulsar-cluster-0.6.0-test.redis/pulsar-cluster-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - apiVersion: v2
+    appVersion: 2.11.2
+    created: "2023-08-07T06:50:07.255389289Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: A Pulsar Cluster Helm chart for KubeBlocks.
+    digest: 64c0155d92cf47d36c886b6895e31a0343594b78263940eeb5d9b65e30276a48
+    home: https://pulsar.apache.org/
+    icon: https://pulsar.apache.org/img/logo-black.svg
+    keywords:
+    - pulsar
+    - kafka
+    - kop
+    - streaming
+    - messaging
+    - cloud-native
+    - message queue
+    - producer
+    - consumer
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: pulsar-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/pulsar-cluster-0.6.0-beta.27/pulsar-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - apiVersion: v2
     appVersion: 2.11.2
     created: "2023-08-07T02:42:41.945947709Z"
@@ -33001,6 +33559,23 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/qdrant-0.6.0-test.redis/qdrant-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2023-08-07T06:50:07.362988559Z"
+    description: .
+    digest: df823703a69f6cc5a575adb8b05f4c05ea51431fcb9dda72094f75555721af36
+    home: https://qdrant.tech/
+    icon: https://qdrant.tech/images/logo_with_text.svg
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: qdrant
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/qdrant-0.6.0-beta.27/qdrant-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - apiVersion: v2
     appVersion: 1.1.0
     created: "2023-08-07T02:42:42.033918549Z"
@@ -33991,6 +34566,16 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/qdrant-cluster-0.6.0-test.redis/qdrant-cluster-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2023-08-07T06:50:07.485392497Z"
+    description: A Qdrant cluster Helm chart for KubeBlocks.
+    digest: 5b247211966d16f4e57abf4c58c77dc532596aa26a6995cf1b28763d5a571c07
+    name: qdrant-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/qdrant-cluster-0.6.0-beta.27/qdrant-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - apiVersion: v2
     appVersion: 1.1.0
     created: "2023-08-07T02:42:42.112310094Z"
@@ -35062,6 +35647,26 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/redis-0.6.0-test.redis/redis-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - apiVersion: v2
+    appVersion: 7.0.6
+    created: "2023-08-07T06:50:07.620418715Z"
+    description: A Redis cluster definition Helm chart for Kubernetes
+    digest: 1e07df558850e40644a7c8895b842d8a3435c1c697257444eee6ebbe4d8495e6
+    home: https://redis.io/
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - database
+    - nosql
+    - replication
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: redis
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/redis-0.6.0-beta.27/redis-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - apiVersion: v2
     appVersion: 7.0.6
     created: "2023-08-07T02:42:42.196774772Z"
@@ -36263,6 +36868,36 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/redis-cluster-0.6.0-test.redis/redis-cluster-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 7.0.6
+    created: "2023-08-07T06:50:07.705292738Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: A Redis Replication Cluster Helm chart for KubeBlocks.
+    digest: 61a590d5211464049dc14bd08fd8ec303291995731ef5ce8e5afa43280ac8faf
+    home: https://github.com/apecloud/kubeblocks/tree/main/deploy/redis-cluster
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - redis
+    - database
+    - nosql
+    - replication
+    maintainers:
+    - name: ApeCloud
+      url: https://kubeblocks.io/
+    name: redis-cluster
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    - https://github.com/apecloud/kubeblocks/tree/main/deploy/redis
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/redis-cluster-0.6.0-beta.27/redis-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - annotations:
       category: Database
     apiVersion: v2
@@ -37838,6 +38473,27 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: 7.0.6
+    created: "2023-08-07T06:50:07.802066137Z"
+    description: A Redis demo for config-manager functional
+    digest: acfd066fa4bd21a9ca64d772ac3939b7f8052cf63fae4682ca7cc54aeb117bee
+    home: https://redis.io/
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - redis-demo
+    - database
+    - nosql
+    - replication
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: redis-demo
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/redis-demo-0.6.0-beta.27/redis-demo-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: 7.0.6
     created: "2023-08-07T02:42:42.3591673Z"
     description: A Redis demo for config-manager functional
     digest: b2d53195bf14aee6b4aa3d08897f64564c6383be94f391bf9d9374fba5c0565a
@@ -38971,6 +39627,33 @@ entries:
       category: Infrastructure for IoT
     apiVersion: v2
     appVersion: 3.0.5.0
+    created: "2023-08-07T06:50:08.014030595Z"
+    description: A Specific Implementation of TDengine Chart for Kubernetes, and provides
+      by KubeBlocks' ClusterDefinition API manifests.
+    digest: 3d58948689497f61d8847b507f07a8d180c103a7aa323e8f6c4c5a9d5d3b72bc
+    home: https://github.com/taosdata/TDengine
+    icon: https://www.taosdata.com/images/taosdata-logo.png
+    keywords:
+    - iot
+    - tsdb
+    - tdengine
+    - bigdata
+    - metrics
+    - monitoring
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: tdengine
+    sources:
+    - https://github.com/taosdata/TDengine
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/tdengine-0.6.0-beta.27/tdengine-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - annotations:
+      category: Infrastructure for IoT
+    apiVersion: v2
+    appVersion: 3.0.5.0
     created: "2023-08-07T02:42:42.526196577Z"
     description: A Specific Implementation of TDengine Chart for Kubernetes, and provides
       by KubeBlocks' ClusterDefinition API manifests.
@@ -39565,10 +40248,10 @@ entries:
       category: Infrastructure for IoT
     apiVersion: v2
     appVersion: 3.0.5.0
-    created: "2023-07-18T03:34:00.991750391Z"
+    created: "2023-07-18T01:20:56.679503196Z"
     description: A Specific Implementation of TDengine Chart for Kubernetes, and provides
       by KubeBlocks' ClusterDefinition API manifests.
-    digest: 1d528069b8b45eb7388f36641ef79dc91cad28448c11a6749b6af2e4455a74fb
+    digest: bf053537e24121da259f8e7ee554680db9e4f34f66a2265bb7966fe3685cf074
     home: https://github.com/taosdata/TDengine
     icon: https://www.taosdata.com/images/taosdata-logo.png
     keywords:
@@ -39592,10 +40275,10 @@ entries:
       category: Infrastructure for IoT
     apiVersion: v2
     appVersion: 3.0.5.0
-    created: "2023-07-18T01:20:56.679503196Z"
+    created: "2023-07-18T03:34:00.991750391Z"
     description: A Specific Implementation of TDengine Chart for Kubernetes, and provides
       by KubeBlocks' ClusterDefinition API manifests.
-    digest: bf053537e24121da259f8e7ee554680db9e4f34f66a2265bb7966fe3685cf074
+    digest: 1d528069b8b45eb7388f36641ef79dc91cad28448c11a6749b6af2e4455a74fb
     home: https://github.com/taosdata/TDengine
     icon: https://www.taosdata.com/images/taosdata-logo.png
     keywords:
@@ -40136,6 +40819,22 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: 3.0.5.0
+    created: "2023-08-07T06:50:08.134714044Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: A Helm chart to create a cluster for TDengine in Kubeblocks.
+    digest: 11b1c9c9e41c0b194722d16403b7fbbfe2b530f75dfcb9314c9194f19eb9262a
+    icon: https://kubeblocks.io/img/logo.png
+    name: tdengine-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/tdengine-cluster-0.6.0-beta.27/tdengine-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: 3.0.5.0
     created: "2023-08-07T02:42:42.603164737Z"
     dependencies:
     - alias: extra
@@ -40488,22 +41187,6 @@ entries:
     version: 0.6.0-beta.5
   - apiVersion: v2
     appVersion: 3.0.5.0
-    created: "2023-07-18T03:34:01.149002543Z"
-    dependencies:
-    - alias: extra
-      name: kblib
-      repository: file://../kblib
-      version: 0.1.0
-    description: A Helm chart to create a cluster for TDengine in Kubeblocks.
-    digest: 429c26cfbf7561adae036fd12a106b78fa94b5732df8b72524ebd57ad6bf9461
-    icon: https://kubeblocks.io/img/logo.png
-    name: tdengine-cluster
-    type: application
-    urls:
-    - https://github.com/apecloud/helm-charts/releases/download/tdengine-cluster-0.6.0-beta.5/tdengine-cluster-0.6.0-beta.5.tgz
-    version: 0.6.0-beta.5
-  - apiVersion: v2
-    appVersion: 3.0.5.0
     created: "2023-07-18T01:20:56.760390454Z"
     dependencies:
     - alias: extra
@@ -40512,6 +41195,22 @@ entries:
       version: 0.1.0
     description: A Helm chart to create a cluster for TDengine in Kubeblocks.
     digest: 28058f4a5c1053feeafcf0add6e91f97551f87f766ff49f14c0f24fbd0106eec
+    icon: https://kubeblocks.io/img/logo.png
+    name: tdengine-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/tdengine-cluster-0.6.0-beta.5/tdengine-cluster-0.6.0-beta.5.tgz
+    version: 0.6.0-beta.5
+  - apiVersion: v2
+    appVersion: 3.0.5.0
+    created: "2023-07-18T03:34:01.149002543Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: A Helm chart to create a cluster for TDengine in Kubeblocks.
+    digest: 429c26cfbf7561adae036fd12a106b78fa94b5732df8b72524ebd57ad6bf9461
     icon: https://kubeblocks.io/img/logo.png
     name: tdengine-cluster
     type: application
@@ -40840,6 +41539,25 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/weaviate-0.6.0-test.redis/weaviate-0.6.0-test.redis.tgz
     version: 0.6.0-test.redis
+  - apiVersion: v2
+    appVersion: 1.18.0
+    created: "2023-08-07T06:50:08.287465826Z"
+    description: Weaviate is an open-source vector database. It allows you to store
+      data objects and vector embeddings from your favorite ML-models, and scale seamlessly
+      into billions of data objects.
+    digest: 55266a43aa08c23e37deadabbd8e73907f2748ebc3dbac779f2b14befd7dbf37
+    home: https://weaviate.tech/
+    icon: https://weaviate.tech/images/logo_with_text.svg
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: weaviate
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/weaviate-0.6.0-beta.27/weaviate-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
   - apiVersion: v2
     appVersion: 1.18.0
     created: "2023-08-07T02:42:42.689199298Z"
@@ -41938,6 +42656,16 @@ entries:
     version: 0.6.0-test.redis
   - apiVersion: v2
     appVersion: 1.18.0
+    created: "2023-08-07T06:50:08.391821009Z"
+    description: A weaviate cluster Helm chart for KubeBlocks.
+    digest: 20234748295b1700e156af677e1b72041b1d383bde01c05367a1b278bccad263
+    name: weaviate-cluster
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/weaviate-cluster-0.6.0-beta.27/weaviate-cluster-0.6.0-beta.27.tgz
+    version: 0.6.0-beta.27
+  - apiVersion: v2
+    appVersion: 1.18.0
     created: "2023-08-07T02:42:42.776763843Z"
     description: A weaviate cluster Helm chart for KubeBlocks.
     digest: f301bb833f06d243c676c771ed0b5ba5b1b94ab536c0c82283975841f47ef9cb
@@ -42506,4 +43234,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/weaviate-cluster-0.5.1/weaviate-cluster-0.5.1.tgz
     version: 0.5.1
-generated: "2023-08-07T02:42:42.791791279Z"
+generated: "2023-08-07T06:50:08.405789879Z"
