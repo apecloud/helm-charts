@@ -14666,6 +14666,52 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/grafana-6.43.5/grafana-6.43.5.tgz
     version: 6.43.5
+  jupyterhub:
+  - annotations:
+      artifacthub.io/images: |
+        - image: jupyterhub/configurable-http-proxy:4.5.6
+          name: configurable-http-proxy
+        - image: jupyterhub/k8s-hub:3.0.1-0.dev.git.6287.hbfb05cd6
+          name: k8s-hub
+        - image: jupyterhub/k8s-image-awaiter:3.0.1-0.dev.git.6287.hbfb05cd6
+          name: k8s-image-awaiter
+        - image: jupyterhub/k8s-network-tools:3.0.1-0.dev.git.6287.hbfb05cd6
+          name: k8s-network-tools
+        - image: jupyterhub/k8s-secret-sync:3.0.1-0.dev.git.6287.hbfb05cd6
+          name: k8s-secret-sync
+        - image: jupyterhub/k8s-singleuser-sample:3.0.1-0.dev.git.6287.hbfb05cd6
+          name: k8s-singleuser-sample
+        - image: registry.k8s.io/kube-scheduler:v1.26.7
+          name: kube-scheduler
+        - image: registry.k8s.io/pause:3.9
+          name: pause
+        - image: registry.k8s.io/pause:3.9
+          name: pause
+        - image: traefik:v2.10.4
+          name: traefik
+    apiVersion: v2
+    appVersion: 4.0.2
+    created: "2023-08-13T10:13:11.299382144Z"
+    description: Multi-user Jupyter installation
+    digest: 3bb3a835a2ef4657a2e98d1d7b69799c43cfe9a9fc3435db9fcf648d2c8cce26
+    home: https://z2jh.jupyter.org
+    icon: https://hub.jupyter.org/helm-chart/images/hublogo.svg
+    keywords:
+    - jupyter
+    - jupyterhub
+    - z2jh
+    kubeVersion: '>=1.23.0-0'
+    maintainers:
+    - email: erik@sundellopensource.se
+      name: Erik Sundell
+    - name: Simon Li
+      url: https://github.com/manics/
+    name: jupyterhub
+    sources:
+    - https://github.com/jupyterhub/zero-to-jupyterhub-k8s
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/jupyterhub-3.0.1-0.dev.git.6287.hbfb05cd6/jupyterhub-0.1.0.tgz
+    version: 3.0.1-0.dev.git.6287.hbfb05cd6
   kafka:
   - annotations:
       category: Infrastructure
@@ -51335,4 +51381,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/weaviate-cluster-0.5.1/weaviate-cluster-0.5.1.tgz
     version: 0.5.1
-generated: "2023-08-11T10:19:11.483103821Z"
+generated: "2023-08-13T10:13:11.30650376Z"
