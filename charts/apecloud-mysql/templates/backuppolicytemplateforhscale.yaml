@@ -1,0 +1,23 @@
+apiVersion: apps.kubeblocks.io/v1alpha1
+kind: BackupPolicyTemplate
+metadata:
+  name: apecloud-mysql-backup-policy-for-hscale
+  labels:
+    clusterdefinition.kubeblocks.io/name: apecloud-mysql
+    {{- include "apecloud-mysql.labels" . | nindent 4 }}
+spec:
+  clusterDefinitionRef: apecloud-mysql
+  identifier: hscale
+  backupPolicies:
+  - componentDefRef: mysql
+    snapshot:
+      hooks:
+        containerName: mysql
+        preCommands:
+        - "touch {{ .Values.mysqlConfigs.dataDir }}/.restore; sync"
+        postCommands:
+        - "rm -f {{ .Values.mysqlConfigs.dataDir }}/.restore; sync"
+      target:
+        role: leader
+    datafile:
+      backupToolName: xtrabackup-for-apecloud-mysql-for-hscale
