@@ -1,0 +1,19 @@
+name: CICD-PUSH
+
+on:
+  push:
+    branches:
+      - '*'
+      - '*/*'
+    tags-ignore:
+      - '*'
+
+jobs:
+  check-helm:
+    uses: apecloud/apecloud-cd/.github/workflows/release-charts-check.yml@v0.1.24
+    with:
+      VERSION: "v0.7.0-check"
+      CHART_NAME: "nyancat"
+      CHART_DIR: "deploy/nyancat"
+      APECD_REF: "v0.1.24"
+    secrets: inherit
