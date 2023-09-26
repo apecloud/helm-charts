@@ -29,13 +29,13 @@ jobs:
         with:
           ref: gh-pages
 
-      - name: update index
+      - name: update index ${{ inputs.VERSION }}
         id: update_index
         run: |
           CHART_VERSION=""
           for release in $(echo "${{ inputs.VERSION }}" | sed 's/|/ /g'); do
               CHART_VERSION="${release/v/}"
-              yq eval 'del(.entries.[].[]|select(.version|contains("'${CHART_VERSION}'")))' -i ${{ github.workspace }}/index.yaml
+              yq eval 'del(.entries.[].[]|select(.version == "'${CHART_VERSION}'"))' -i ${{ github.workspace }}/index.yaml
           done
           FILE_CHANGES=`git diff --name-only ${{ github.sha }}`
           if [[ ! -z "$FILE_CHANGES" ]]; then
