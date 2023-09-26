@@ -24,8 +24,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          ref: gh-pages
 
       - name: update index
         id: update_index
@@ -48,5 +46,4 @@ jobs:
         uses: ad-m/github-push-action@master
         if: ${{ steps.update_index.outputs.file_changes }}
         with:
-          github_token: ${{ env.VERSION }}
-          branch: gh-pages
+          github_token: ${{ env.GH_TOKEN }}
