@@ -1,0 +1,52 @@
+name: Update Index
+
+on:
+  workflow_dispatch:
+    inputs:
+      VERSION:
+        description: 'The version of helm chart'
+        required: true
+        default: ''
+  workflow_call:
+    inputs:
+      VERSION:
+        description: "The version of helm chart"
+        type: string
+        required: true
+        default: ''
+
+env:
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: update index
+        id: update_index
+        run: |
+          CHART_VERSION=""
+          for release in $(echo "${{ inputs.VERSION }}" | sed 's/|/ /g'); do
+              CHART_VERSION="${release/v/}"
+              yq eval 'del(.entries.[].[]|select(.version|contains("'${CHART_VERSION}'")))' -i ${{ github.workspace }}/index.yaml
+          done
+          FILE_CHANGES=`git diff --name-only ${{ github.sha }}`
+          if [[ ! -z "$FILE_CHANGES" ]]; then
+              echo $FILE_CHANGES
+              git config --local user.name "$GITHUB_ACTOR"
+              git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+              git commit -a -m "chore: delete index chart version ${CHART_VERSION}"
+          fi
+          echo file_changes=$FILE_CHANGES >> $GITHUB_OUTPUT
+
+      - name: Push index.yaml changes
+        uses: ad-m/github-push-action@master
+        if: ${{ steps.update_index.outputs.file_changes }}
+        with:
+          github_token: ${{ env.VERSION }}
+          branch: gh-pages
