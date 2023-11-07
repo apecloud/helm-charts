@@ -2,6 +2,8 @@ name: CICD-PUSH
 
 on:
   push:
+    paths:
+      - "charts/**"
     branches:
       - '*'
       - '*/*'
@@ -10,10 +12,9 @@ on:
 
 jobs:
   check-helm:
-    uses: apecloud/apecloud-cd/.github/workflows/release-charts-check.yml@v0.1.24
+    uses: apecloud/apecloud-cd/.github/workflows/release-charts-check.yml@v0.1.38
     with:
       VERSION: "v0.7.0-check"
-      CHART_NAME: "nyancat"
-      CHART_DIR: "charts/nyancat"
-      APECD_REF: "v0.1.24"
+      CHART_DIR: "charts"
+      APECD_REF: "v0.1.38"
     secrets: inherit
