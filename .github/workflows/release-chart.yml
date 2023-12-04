@@ -1,38 +1,39 @@
-name: RELEASE-CHART
+name: Release Chart
 
 on:
   workflow_dispatch:
     inputs:
+      chart_dir:
+        description: 'release specify chart dir or empty to release all'
+        required: false
+        default: ''
+        type: choice
+        options:
+          - ""
+          - bytebase
+          - cert-manager
+          - chatgpt-retrieval-plugin
+          - csi-hostpath-driver
+          - csi-nfs
+          - csi-s3
+          - jupyter-notebook
+          - nyancat
       chart_version:
-        description: 'The version of helm chart'
-        required: true
+        description: 'release specify chart version or empty to release default'
+        required: false
         default: ''
 
 env:
   GH_TOKEN: ${{ github.token }}
-  RELEASE_VERSION: ${{ github.ref_name }}
 
+run-name: Release Chart ${{ inputs.chart_dir }} ${{ inputs.chart_version }}
 
 jobs:
-  chart-version:
-    runs-on: ubuntu-latest
-    outputs:
-      chart-version: ${{ steps.get_version.outputs.chart_version }}
-    steps:
-      - name: Get Chart Version
-        id: get_version
-        run: |
-          VERSION=${{ inputs.chart_version }}
-          if [ -z "$VERSION" ]; then
-              VERSION=${{ env.RELEASE_VERSION }}
-          fi
-          echo chart_version=$VERSION >> $GITHUB_OUTPUT
-
   release-chart:
-    needs: chart-version
-    uses: apecloud/apecloud-cd/.github/workflows/release-charts.yml@v0.1.38
+    uses: apecloud/apecloud-cd/.github/workflows/release-charts.yml@v0.1.40
     with:
-      VERSION: "${{ needs.chart-version.outputs.chart-version }}"
+      VERSION: "${{ inputs.chart_version }}"
       CHART_DIR: "charts"
-      APECD_REF: "v0.1.38"
+      SPECIFY_CHART: "${{ inputs.chart_dir }}"
+      APECD_REF: "v0.1.40"
     secrets: inherit
