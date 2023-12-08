@@ -1,0 +1,21 @@
+{{- $namePrefix := include "logto.fullname" . -}}
+{{- $labels := include "logto.labels" . -}}
+{{- $labelSelector := include "logto.selectorLabels" . }}
+{{- range .Values.services }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $namePrefix }}-{{ .name }}
+  labels:
+    {{- $labels | nindent 4 }}
+spec:
+  type: {{ .type }}
+  ports:
+    - port: {{ .port }}
+      targetPort: {{ .name }}
+      protocol: TCP
+      name: {{ .name }}
+  selector:
+    {{- $labelSelector | nindent 4 }}
+---
+{{- end }}
