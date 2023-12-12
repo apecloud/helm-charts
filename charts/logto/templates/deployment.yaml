@@ -46,6 +46,8 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ include "logto.secretName" . }}
+            - configMapRef:
+                name: {{ include "logto.configMapName" . }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
