@@ -67,3 +67,9 @@ Create the name of secret
 {{- define "logto.secretName" -}}
 {{- include "logto.fullname" . }}
 {{- end }}
+
+{{/*
+*/}}
+{{- define "logto.configMapName" -}}
+{{- include "logto.fullname" . }}
+{{- end }}
