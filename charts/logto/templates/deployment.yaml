@@ -27,6 +27,10 @@ spec:
       serviceAccountName: {{ include "logto.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      hostNetwork: {{ .Values.hostNetwork }}
+      {{- if .Values.hostNetwork }}
+      dnsPolicy: ClusterFirstWithHostNet
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
