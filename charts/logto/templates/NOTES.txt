@@ -3,3 +3,8 @@
   export CONTAINER_PORT=$(kubectl get pod --namespace {{ .Release.Namespace }} $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
   echo "Visit http://127.0.0.1:8080 to use your application"
   kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8080:$CONTAINER_PORT
+
+2. Generate tls certificate and key
+  openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=apecloud.com"
+  kubectl create secret tls {{ .Release.Name }}-tls --key tls.key --cert tls.crt
+  helm upgrade --install {{ .Release.Name }} {{ .Chart.Name }} --namespace {{ .Release.Namespace }} --set tls.enabled=true,tls.secretName={{ .Release.Name }}-tls,tls.certName=tls.crt,tls.keyName=tls.key
