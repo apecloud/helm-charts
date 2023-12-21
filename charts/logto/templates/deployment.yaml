@@ -32,28 +32,41 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       {{- end }}
       containers:
-        - name: {{ .Chart.Name }}
-          securityContext:
+      - name: {{ .Chart.Name }}
+        securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.registry}}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
+        image: "{{ .Values.image.registry}}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
             {{- range .Values.services }}
-            - name: {{ .name }}
-              containerPort: {{ .port }}
+        - name: {{ .name }}
+          containerPort: {{ .port }}
             {{- end }}
-          command:
-          - /bin/sh
-          args:
-            - -c
-            - 'npm run cli db seed -- --swe && npm run cli db config rotate oidc.privateKeys -- --type=rsa && npm start'
-          envFrom:
-            - secretRef:
-                name: {{ include "logto.secretName" . }}
-            - configMapRef:
-                name: {{ include "logto.configMapName" . }}
-          resources:
+        command:
+        - /bin/sh
+        args:
+        - -c
+        - 'npm run cli db seed -- --swe && npm run cli db config rotate oidc.privateKeys -- --type=rsa && npm start'
+        envFrom:
+        - secretRef:
+            name: {{ include "logto.secretName" . }}
+        - configMapRef:
+            name: {{ include "logto.configMapName" . }}
+        resources:
             {{- toYaml .Values.resources | nindent 12 }}
+        {{- if .Values.tls.enabled }}
+        volumeMounts:
+        - name: tls
+          mountPath: /etc/logto/tls
+          readOnly: true
+        {{- end }}
+      {{- if .Values.tls.enabled }}
+      volumes:
+      - name: tls
+        secret:
+          defaultMode: 420
+          secretName: {{ .Values.tls.secretName }}
+        {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
