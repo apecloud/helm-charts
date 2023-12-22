@@ -37625,6 +37625,39 @@ entries:
     version: "202308101146"
   - apiVersion: v2
     appVersion: v0.2.3
+    created: "2023-12-22T07:29:12.901156056Z"
+    dependencies:
+    - condition: deploy.postgresql.enable
+      name: postgresql
+      repository: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+      version: 11.1.9
+    - condition: deploy.contour.enable
+      name: contour
+      repository: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+      version: 7.8.0
+    - condition: deploy.victoriametrics.enabled
+      name: victoria-metrics-cluster
+      repository: https://victoriametrics.github.io/helm-charts
+      version: 0.10.8
+    - condition: deploy.victoriametrics.enabled
+      name: victoria-metrics-alert
+      repository: https://jihulab.com/api/v4/projects/152630/packages/helm/stable
+      version: 0.8.3
+    - condition: deploy.grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.59.4
+    description: A Helm chart for KubeBlocks Cloud.
+    digest: 8e052c08acb1cea190ed5fe5ba6b5c921c0a44dea4013f423746090588ceda17
+    maintainers:
+    - name: KubeBlocks Team
+    name: kubeblocks-cloud
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-cloud-v0.6.4/kubeblocks-cloud-v0.6.4.tgz
+    version: v0.6.4
+  - apiVersion: v2
+    appVersion: v0.2.3
     created: "2023-12-22T05:53:57.299784567Z"
     dependencies:
     - condition: deploy.postgresql.enable
@@ -110260,4 +110293,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/zookeeper-cluster-0.7.0-beta.13/zookeeper-cluster-0.7.0-beta.13.tgz
     version: 0.7.0-beta.13
-generated: "2023-12-22T07:21:56.026088743Z"
+generated: "2023-12-22T07:29:12.925878409Z"
