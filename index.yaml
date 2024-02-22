@@ -20241,6 +20241,40 @@ entries:
     version: "202308101146"
   - apiVersion: v2
     appVersion: v0.2.3
+    created: "2024-02-22T09:27:54.086245766Z"
+    dependencies:
+    - condition: deploy.postgresql.enable
+      name: postgresql
+      repository: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+      version: 11.1.9
+    - condition: deploy.contour.enable
+      name: contour
+      repository: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+      version: 7.8.0
+    - condition: deploy.victoriametrics.enabled
+      name: victoria-metrics-cluster
+      repository: https://victoriametrics.github.io/helm-charts
+      version: 0.10.8
+    - alias: vmalert
+      condition: deploy.vmalert.enabled
+      name: victoria-metrics-alert
+      repository: https://jihulab.com/api/v4/projects/152630/packages/helm/stable
+      version: 0.8.3-reload
+    - condition: deploy.grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.59.4
+    description: A Helm chart for KubeBlocks Cloud.
+    digest: d68b64acde26ebc0faa548671ab64af832a9597513c84980bd8f47874787033a
+    maintainers:
+    - name: KubeBlocks Team
+    name: kubeblocks-cloud
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-cloud-v0.12.0-alpha.24/kubeblocks-cloud-v0.12.0-alpha.24.tgz
+    version: v0.12.0-alpha.24
+  - apiVersion: v2
+    appVersion: v0.2.3
     created: "2024-02-22T08:25:08.23448651Z"
     dependencies:
     - condition: deploy.postgresql.enable
@@ -59911,6 +59945,42 @@ entries:
           url: https://docs.victoriametrics.com/vmalert.html
     apiVersion: v1
     appVersion: v1.95.1
+    created: "2024-02-22T09:27:54.215897586Z"
+    description: Victoria Metrics Alert - executes a list of given MetricsQL expressions
+      (rules) and sends alerts to Alert Manager.
+    digest: 8aa93ff8800a7627d08aba32d25eb0b77200d5d162079a6acedb8f91d7e68371
+    home: https://github.com/VictoriaMetrics/helm-charts
+    icon: https://avatars.githubusercontent.com/u/43720803?s=200&v=4
+    keywords:
+    - victoriametrics
+    - vmalert
+    - alerting
+    - alerts
+    - monitoring
+    - kubernetes
+    - observability
+    - metrics
+    - timeseries
+    - rules
+    kubeVersion: '>=1.23.0-0'
+    name: victoria-metrics-alert
+    sources:
+    - https://github.com/VictoriaMetrics/helm-charts
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/victoria-metrics-alert-v0.12.0-alpha.24/victoria-metrics-alert-v0.12.0-alpha.24.tgz
+    version: v0.12.0-alpha.24
+  - annotations:
+      artifacthub.io/category: monitoring-logging
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Sources
+          url: https://github.com/VictoriaMetrics/helm-charts
+        - name: Charts repo
+          url: https://victoriametrics.github.io/helm-charts/
+        - name: Docs
+          url: https://docs.victoriametrics.com/vmalert.html
+    apiVersion: v1
+    appVersion: v1.95.1
     created: "2024-02-22T08:25:08.31881833Z"
     description: Victoria Metrics Alert - executes a list of given MetricsQL expressions
       (rules) and sends alerts to Alert Manager.
@@ -60811,42 +60881,6 @@ entries:
           url: https://docs.victoriametrics.com/vmalert.html
     apiVersion: v1
     appVersion: v1.95.1
-    created: "2024-02-07T07:18:38.852113128Z"
-    description: Victoria Metrics Alert - executes a list of given MetricsQL expressions
-      (rules) and sends alerts to Alert Manager.
-    digest: 14560dbcb60d8091918e232ef116b237fca1fdeaf5211c408498358631fbfe2c
-    home: https://github.com/VictoriaMetrics/helm-charts
-    icon: https://avatars.githubusercontent.com/u/43720803?s=200&v=4
-    keywords:
-    - victoriametrics
-    - vmalert
-    - alerting
-    - alerts
-    - monitoring
-    - kubernetes
-    - observability
-    - metrics
-    - timeseries
-    - rules
-    kubeVersion: '>=1.23.0-0'
-    name: victoria-metrics-alert
-    sources:
-    - https://github.com/VictoriaMetrics/helm-charts
-    urls:
-    - https://github.com/apecloud/helm-charts/releases/download/victoria-metrics-alert-0.8.3-reload/victoria-metrics-alert-0.8.3-reload.tgz
-    version: 0.8.3-reload
-  - annotations:
-      artifacthub.io/category: monitoring-logging
-      artifacthub.io/license: Apache-2.0
-      artifacthub.io/links: |
-        - name: Sources
-          url: https://github.com/VictoriaMetrics/helm-charts
-        - name: Charts repo
-          url: https://victoriametrics.github.io/helm-charts/
-        - name: Docs
-          url: https://docs.victoriametrics.com/vmalert.html
-    apiVersion: v1
-    appVersion: v1.95.1
     created: "2024-02-07T07:53:57.762459748Z"
     description: Victoria Metrics Alert - executes a list of given MetricsQL expressions
       (rules) and sends alerts to Alert Manager.
@@ -61067,6 +61101,42 @@ entries:
     description: Victoria Metrics Alert - executes a list of given MetricsQL expressions
       (rules) and sends alerts to Alert Manager.
     digest: 8feca3d5645fca1fe4f4e4f087673f8cd3eb29c4be7d93e8eaa2bfd2861335a8
+    home: https://github.com/VictoriaMetrics/helm-charts
+    icon: https://avatars.githubusercontent.com/u/43720803?s=200&v=4
+    keywords:
+    - victoriametrics
+    - vmalert
+    - alerting
+    - alerts
+    - monitoring
+    - kubernetes
+    - observability
+    - metrics
+    - timeseries
+    - rules
+    kubeVersion: '>=1.23.0-0'
+    name: victoria-metrics-alert
+    sources:
+    - https://github.com/VictoriaMetrics/helm-charts
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/victoria-metrics-alert-0.8.3-reload/victoria-metrics-alert-0.8.3-reload.tgz
+    version: 0.8.3-reload
+  - annotations:
+      artifacthub.io/category: monitoring-logging
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Sources
+          url: https://github.com/VictoriaMetrics/helm-charts
+        - name: Charts repo
+          url: https://victoriametrics.github.io/helm-charts/
+        - name: Docs
+          url: https://docs.victoriametrics.com/vmalert.html
+    apiVersion: v1
+    appVersion: v1.95.1
+    created: "2024-02-07T07:18:38.852113128Z"
+    description: Victoria Metrics Alert - executes a list of given MetricsQL expressions
+      (rules) and sends alerts to Alert Manager.
+    digest: 14560dbcb60d8091918e232ef116b237fca1fdeaf5211c408498358631fbfe2c
     home: https://github.com/VictoriaMetrics/helm-charts
     icon: https://avatars.githubusercontent.com/u/43720803?s=200&v=4
     keywords:
@@ -64452,4 +64522,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/zookeeper-cluster-0.7.0/zookeeper-cluster-0.7.0.tgz
     version: 0.7.0
-generated: "2024-02-22T08:25:08.328189921Z"
+generated: "2024-02-22T09:27:54.225910319Z"
