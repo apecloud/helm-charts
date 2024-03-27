@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "redash.fullname" . }}
+  labels:
+    {{- include "redash.labels" . | nindent 4 }}
+    app.kubernetes.io/component: server
+spec:
+  replicas: {{ .Values.server.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "redash.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: server
+  template:
+    metadata:
+      labels:
+        {{- include "redash.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: server
+        {{- if .Values.server.podLabels }}
+        {{- tpl (toYaml .Values.server.podLabels) $ | nindent 8 }}
+        {{- end }}
+      {{- if .Values.server.podAnnotations }}
+      annotations:
+      {{ toYaml .Values.server.podAnnotations | nindent 8 }}
+      {{- end }}
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      serviceAccountName: {{ include "redash.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.server.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ include "redash.name" . }}-server
+          securityContext:
+            {{- toYaml .Values.server.securityContext | nindent 12 }}
+          image: {{ .Values.image.registry }}/{{ .Values.image.repo }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["/bin/sh"]
+          args: ["-c", ". /config/dynamicenv.sh && /app/bin/docker-entrypoint server"]
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            {{- with .Values.server.volumeMounts }}
+            {{- toYaml . | nindent 12 }}
+            {{- end }}
+          env:
+          {{- include "redash.env" . | nindent 12 }}
+          {{- range $key, $value := .Values.server.env }}
+            - name: "{{ $key }}"
+              value: "{{ $value }}"
+          {{- end }}
+          {{- if (include "redash.envFrom" .) }}
+          envFrom:
+          {{- include "redash.envFrom" . | nindent 12 }}
+          {{- end }}
+          ports:
+            - containerPort: {{ .Values.server.httpPort }}
+          livenessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - curl http://localhost:{{ .Values.server.httpPort }}/ping
+            # Redash can take a while to come up initially, so we delay checks.
+            initialDelaySeconds: 90
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 10
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - curl http://localhost:{{ .Values.server.httpPort }}/ping
+            initialDelaySeconds: 10
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          {{- if .Values.server.resources }}
+          resources: {{ toYaml .Values.server.resources | nindent 12 }}
+          {{- end }}
+      volumes:
+        - name: config
+          configMap:
+            name: {{ include "redash.fullname" . }}
+        {{- with .Values.server.volumes }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    {{- with .Values.server.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.server.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.server.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
