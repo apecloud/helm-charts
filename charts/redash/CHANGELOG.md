@@ -1,5 +1,12 @@
 # Changelog
 
+NOTE:
+Forked from https://github.com/getredash/contrib-helm-chart/commit/4f023b075005dd4baf42cf656a81b56092140959
+
+Some changes to compatibility with kubernetes that enable ipv6:
+* Set service ip family to ipv4
+* Use exec to probe
+
 ## 3.0.1 (unreleased)
 
 - Change scheduler deployment strategy type to Recreate. (#121)
