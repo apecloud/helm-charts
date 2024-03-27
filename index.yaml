@@ -72817,6 +72817,37 @@ entries:
     - https://github.com/apecloud/helm-charts/releases/download/qdrant-cluster-0.5.1/qdrant-cluster-0.5.1.tgz
     version: 0.5.1
   qdrant-standalone: []
+  redash:
+  - apiVersion: v1
+    appVersion: 10.0.0.b50633
+    created: "2024-03-27T08:57:39.216030642Z"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: ^18.9.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: ^13.4.1
+    description: Redash is an open source tool built for teams to query, visualize
+      and collaborate.
+    digest: a15662b2b39a9d1a0c8d824cc442979f95fdc84e915340fe3bd08a5b11434a9d
+    home: https://redash.io/
+    icon: https://redash.io/assets/images/elements/redash-logo.svg
+    keywords:
+    - redash
+    - analytics
+    - visualization
+    maintainers:
+    - email: owen.barton@civicactions.com
+      name: Owen Barton
+    name: redash
+    sources:
+    - https://github.com/getredash/redash
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/redash-3.0.1/redash-3.0.1.tgz
+    version: 3.0.1
   redis:
   - annotations:
       addon.kubeblocks.io/kubeblocks-version: '>=0.8.0'
@@ -90940,4 +90971,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/zookeeper-cluster-0.7.0/zookeeper-cluster-0.7.0.tgz
     version: 0.7.0
-generated: "2024-03-27T08:42:23.02862117Z"
+generated: "2024-03-27T08:57:39.224807105Z"
