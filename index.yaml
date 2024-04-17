@@ -32419,6 +32419,47 @@ entries:
   kubeblocks-cloud:
   - apiVersion: v2
     appVersion: v0.2.3
+    created: "2024-04-17T05:35:30.140633662Z"
+    dependencies:
+    - condition: deploy.postgresql.enable
+      name: postgresql
+      repository: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+      version: 11.1.9
+    - condition: deploy.contour.enable
+      name: contour
+      repository: https://raw.githubusercontent.com/bitnami/charts/archive-full-index/bitnami
+      version: 7.8.0
+    - condition: deploy.victoriametrics.enabled
+      name: victoria-metrics-cluster
+      repository: https://victoriametrics.github.io/helm-charts
+      version: 0.10.8
+    - condition: deploy.grafana.enabled
+      name: grafana
+      repository: https://grafana.github.io/helm-charts
+      version: 6.59.4
+    - condition: redash.enabled
+      name: redash
+      repository: https://apecloud.github.io/helm-charts
+      version: 3.0.1
+    - condition: servicemirror.enabled
+      name: servicemirror
+      repository: https://apecloud.github.io/helm-charts
+      version: 0.2.11
+    - condition: argo-workflows.enabled
+      name: argo-workflows
+      repository: https://argoproj.github.io/argo-helm
+      version: 0.40.14
+    description: A Helm chart for KubeBlocks Cloud.
+    digest: bbe12f27b0c0ab551abf5450ed0527f48c934a95b6b1877375a537d50f33bbc1
+    maintainers:
+    - name: KubeBlocks Team
+    name: kubeblocks-cloud
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kubeblocks-cloud-v0.20.2/kubeblocks-cloud-v0.20.2.tgz
+    version: v0.20.2
+  - apiVersion: v2
+    appVersion: v0.2.3
     created: "2024-04-17T03:46:42.261825067Z"
     dependencies:
     - condition: deploy.postgresql.enable
@@ -89961,6 +90002,42 @@ entries:
           url: https://docs.victoriametrics.com/vmalert.html
     apiVersion: v1
     appVersion: v1.95.1
+    created: "2024-04-17T05:35:30.24968715Z"
+    description: Victoria Metrics Alert - executes a list of given MetricsQL expressions
+      (rules) and sends alerts to Alert Manager.
+    digest: 1189730811557abc5fc52b2a2c3347ce7fa54464242c9f8011e1771e759107cc
+    home: https://github.com/VictoriaMetrics/helm-charts
+    icon: https://avatars.githubusercontent.com/u/43720803?s=200&v=4
+    keywords:
+    - victoriametrics
+    - vmalert
+    - alerting
+    - alerts
+    - monitoring
+    - kubernetes
+    - observability
+    - metrics
+    - timeseries
+    - rules
+    kubeVersion: '>=1.23.0-0'
+    name: victoria-metrics-alert
+    sources:
+    - https://github.com/VictoriaMetrics/helm-charts
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/victoria-metrics-alert-v0.20.2/victoria-metrics-alert-v0.20.2.tgz
+    version: v0.20.2
+  - annotations:
+      artifacthub.io/category: monitoring-logging
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Sources
+          url: https://github.com/VictoriaMetrics/helm-charts
+        - name: Charts repo
+          url: https://victoriametrics.github.io/helm-charts/
+        - name: Docs
+          url: https://docs.victoriametrics.com/vmalert.html
+    apiVersion: v1
+    appVersion: v1.95.1
     created: "2024-04-17T03:46:42.425911498Z"
     description: Victoria Metrics Alert - executes a list of given MetricsQL expressions
       (rules) and sends alerts to Alert Manager.
@@ -104980,4 +105057,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/zookeeper-cluster-0.7.0/zookeeper-cluster-0.7.0.tgz
     version: 0.7.0
-generated: "2024-04-17T03:46:42.436339979Z"
+generated: "2024-04-17T05:35:30.265604971Z"
