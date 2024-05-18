@@ -1,4 +1,3 @@
-{{- if not .Values.hostNetwork }}
 {{- $namePrefix := include "logto.fullname" . -}}
 {{- $labels := include "logto.labels" . -}}
 {{- $labelSelector := include "logto.selectorLabels" . }}
@@ -19,5 +18,4 @@ spec:
   selector:
     {{- $labelSelector | nindent 4 }}
 ---
-{{- end }}
 {{- end }}
