@@ -73,3 +73,15 @@ Create the name of secret
 {{- define "logto.configMapName" -}}
 {{- include "logto.fullname" . }}
 {{- end }}
+
+{{/*
+*/}}
+{{- define "logto.certSecretName" -}}
+{{- if .Values.tls.enabled }}
+{{- if .Values.tls.secretName }}
+{{- .Values.tls.secretName }}
+{{- else }}
+{{- include "logto.fullname" . }}-tls
+{{- end }}
+{{- end }}
+{{- end }}
