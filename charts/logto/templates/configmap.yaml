@@ -8,6 +8,6 @@ data:
   ENDPOINT: {{ .Values.coreEndpoint | quote }}
   ADMIN_ENDPOINT: {{ .Values.adminEndpoint | quote }}
   {{- if .Values.tls.enabled }}
-  HTTPS_CERT_PATH: "/etc/logto/tls/{{ .Values.tls.certName }}"
-  HTTPS_KEY_PATH: "/etc/logto/tls/{{ .Values.tls.keyName }}"
+  HTTPS_CERT_PATH: "/etc/logto/tls/tls.crt"
+  HTTPS_KEY_PATH: "/etc/logto/tls/tls.key"
   {{- end }}
