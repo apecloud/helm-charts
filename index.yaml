@@ -38103,6 +38103,55 @@ entries:
     - https://github.com/apecloud/helm-charts/releases/download/gemini-0.6.4/gemini-0.6.4.tgz
     version: 0.6.4
   - apiVersion: v2
+    appVersion: 0.6.4-cmss.2
+    created: "2024-11-18T10:31:27.95918554Z"
+    dependencies:
+    - condition: cubetran.enabled
+      name: cubetran
+      repository: https://apecloud.github.io/helm-charts
+      version: 0.5.8
+    - condition: victoria-metrics-cluster.enabled
+      name: victoria-metrics-cluster
+      repository: https://victoriametrics.github.io/helm-charts
+      version: 0.11.23
+    - condition: victoria-metrics-alert.enabled
+      name: victoria-metrics-alert
+      repository: file://../victoria-metrics-alert
+      version: 0.8.3-reload
+    - condition: loki.enabled
+      name: loki
+      repository: https://grafana.github.io/helm-charts
+      version: 5.42.1
+    - condition: kubeviewer.enabled
+      name: kubeviewer
+      repository: https://apecloud.github.io/helm-charts
+      version: 0.1.17
+    - condition: servicemirror.enabled
+      name: servicemirror
+      repository: https://apecloud.github.io/helm-charts
+      version: 0.3.1
+    description: KubeBlocks Monitor Controller Operator
+    digest: dcc316e8441035adb380082b1d1e1701c9ba991743a6f1f08ed7a21af214cc6e
+    home: https://www.kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - kubernetes
+    - kubeblocks
+    - monitor
+    - oteld
+    - open telemetry
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/gemini/
+    name: gemini
+    sources:
+    - https://github.com/apecloud/gemini/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/gemini-0.6.4-cmss.2/gemini-0.6.4-cmss.2.tgz
+    version: 0.6.4-cmss.2
+  - apiVersion: v2
     appVersion: 0.6.4-beta.7
     created: "2024-09-04T09:11:46.309196579Z"
     dependencies:
@@ -46367,6 +46416,30 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/gemini-monitor-0.6.4/gemini-monitor-0.6.4.tgz
     version: 0.6.4
+  - apiVersion: v2
+    appVersion: 0.6.0-beta.0
+    created: "2024-11-18T10:31:28.094085025Z"
+    description: A Helm chart for Kubernetes
+    digest: f8ce42b334cb77a32b68f20c7c717ec373f7ffc840133e520dfae543c489bc20
+    home: https://www.kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - kubernetes
+    - kubeblocks
+    - monitor
+    - oteld
+    - open telemetry
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/gemini/
+    name: gemini-monitor
+    sources:
+    - https://github.com/apecloud/gemini/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/gemini-monitor-0.6.4-cmss.2/gemini-monitor-0.6.4-cmss.2.tgz
+    version: 0.6.4-cmss.2
   - apiVersion: v2
     appVersion: 0.6.0-beta.0
     created: "2024-09-04T09:11:46.422942815Z"
@@ -175412,6 +175485,42 @@ entries:
           url: https://docs.victoriametrics.com/vmalert.html
     apiVersion: v1
     appVersion: v1.95.1
+    created: "2024-11-18T10:31:28.173033035Z"
+    description: Victoria Metrics Alert - executes a list of given MetricsQL expressions
+      (rules) and sends alerts to Alert Manager.
+    digest: 2d8dcf28ceb76720ff942b6ad06993055481a3ff90a17a7c04ced437f75d6dbc
+    home: https://github.com/VictoriaMetrics/helm-charts
+    icon: https://avatars.githubusercontent.com/u/43720803?s=200&v=4
+    keywords:
+    - victoriametrics
+    - vmalert
+    - alerting
+    - alerts
+    - monitoring
+    - kubernetes
+    - observability
+    - metrics
+    - timeseries
+    - rules
+    kubeVersion: '>=1.23.0-0'
+    name: victoria-metrics-alert
+    sources:
+    - https://github.com/VictoriaMetrics/helm-charts
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/victoria-metrics-alert-0.6.4-cmss.2/victoria-metrics-alert-0.6.4-cmss.2.tgz
+    version: 0.6.4-cmss.2
+  - annotations:
+      artifacthub.io/category: monitoring-logging
+      artifacthub.io/license: Apache-2.0
+      artifacthub.io/links: |
+        - name: Sources
+          url: https://github.com/VictoriaMetrics/helm-charts
+        - name: Charts repo
+          url: https://victoriametrics.github.io/helm-charts/
+        - name: Docs
+          url: https://docs.victoriametrics.com/vmalert.html
+    apiVersion: v1
+    appVersion: v1.95.1
     created: "2024-09-04T09:11:46.573033211Z"
     description: Victoria Metrics Alert - executes a list of given MetricsQL expressions
       (rules) and sends alerts to Alert Manager.
@@ -184441,4 +184550,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/zookeeper-cluster-0.7.0/zookeeper-cluster-0.7.0.tgz
     version: 0.7.0
-generated: "2024-11-18T09:33:18.998770313Z"
+generated: "2024-11-18T10:31:28.197940874Z"
