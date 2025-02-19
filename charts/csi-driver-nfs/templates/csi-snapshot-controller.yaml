@@ -46,6 +46,27 @@ spec:
       {{- end }}
       nodeSelector:
         kubernetes.io/os: linux
+    # runOnControlPlane=true or runOnMaster=true only takes effect if affinity is not set
+    {{- if tpl "{{ .Values.controller.affinity }}" . | contains "nodeSelectorTerms" }}
+      {{- with .Values.controller.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+      {{- end }}
+    {{- else if or .Values.controller.runOnControlPlane .Values.controller.runOnMaster}}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                {{- if .Values.controller.runOnControlPlane}}
+                - key: node-role.kubernetes.io/control-plane
+                  operator: Exists
+                {{- end}}
+                {{- if .Values.controller.runOnMaster}}
+                - key: node-role.kubernetes.io/master
+                  operator: Exists
+                {{- end}}
+    {{- end }}
       priorityClassName: {{ .Values.externalSnapshotter.priorityClassName }}
       securityContext:
         seccompProfile:
@@ -56,11 +77,19 @@ spec:
 {{- end }}
       containers:
         - name: {{ .Values.externalSnapshotter.name }}
-          image: {{ .Values.image.registry }}/{{ .Values.image.externalSnapshotter.repository }}:{{ .Values.image.externalSnapshotter.tag }}
+{{- if hasPrefix "/" .Values.image.externalSnapshotter.repository }}
+          image: "{{ .Values.image.baseRepo }}{{ .Values.image.externalSnapshotter.repository }}:{{ .Values.image.externalSnapshotter.tag }}"
+{{- else }}
+          image: {{ .Values.image.externalSnapshotter.repository }}:{{ .Values.image.externalSnapshotter.tag }}
+{{- end }}
           args:
             - "--v=2"
             - "--leader-election=true"
             - "--leader-election-namespace={{ .Release.Namespace }}"
           resources: {{- toYaml .Values.externalSnapshotter.resources | nindent 12 }}
           imagePullPolicy: {{ .Values.image.externalSnapshotter.pullPolicy }}
+          securityContext:
+            capabilities:
+              drop:
+              - ALL
 {{- end -}}

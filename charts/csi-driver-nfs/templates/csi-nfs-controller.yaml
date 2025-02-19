@@ -24,18 +24,29 @@ spec:
       hostNetwork: true  # controller also needs to mount nfs to create dir
       dnsPolicy: {{ .Values.controller.dnsPolicy }}
       serviceAccountName: {{ .Values.serviceAccount.controller }}
-{{- with .Values.controller.affinity }}
+    # runOnControlPlane=true or runOnMaster=true only takes effect if affinity is not set
+    {{- if tpl "{{ .Values.controller.affinity }}" . | contains "nodeSelectorTerms" }}
+      {{- with .Values.controller.affinity }}
       affinity:
 {{ toYaml . | indent 8 }}
-{{- end }}
+      {{- end }}
+    {{- else if or .Values.controller.runOnControlPlane .Values.controller.runOnMaster}}
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                {{- if .Values.controller.runOnControlPlane}}
+                - key: node-role.kubernetes.io/control-plane
+                  operator: Exists
+                {{- end}}
+                {{- if .Values.controller.runOnMaster}}
+                - key: node-role.kubernetes.io/master
+                  operator: Exists
+                {{- end}}
+    {{- end }}
       nodeSelector:
         kubernetes.io/os: linux
-        {{- if .Values.controller.runOnMaster}}
-        node-role.kubernetes.io/master: ""
-        {{- end}}
-        {{- if .Values.controller.runOnControlPlane}}
-        node-role.kubernetes.io/control-plane: ""
-        {{- end}}
 {{- with .Values.controller.nodeSelector }}
 {{ toYaml . | indent 8 }}
 {{- end }}
@@ -49,14 +60,20 @@ spec:
 {{- end }}
       containers:
         - name: csi-provisioner
-          image: "{{ .Values.image.registry }}/{{ .Values.image.csiProvisioner.repository }}:{{ .Values.image.csiProvisioner.tag }}"
+{{- if hasPrefix "/" .Values.image.csiProvisioner.repository }}
+          image: "{{ .Values.image.baseRepo }}{{ .Values.image.csiProvisioner.repository }}:{{ .Values.image.csiProvisioner.tag }}"
+{{- else }}
+          image: "{{ .Values.image.csiProvisioner.repository }}:{{ .Values.image.csiProvisioner.tag }}"
+{{- end }}
           args:
             - "-v=2"
             - "--csi-address=$(ADDRESS)"
             - "--leader-election"
             - "--leader-election-namespace={{ .Release.Namespace }}"
             - "--extra-create-metadata=true"
+            - "--feature-gates=HonorPVReclaimPolicy=true"
             - "--timeout=1200s"
+            - "--retry-interval-max=30m"
           env:
             - name: ADDRESS
               value: /csi/csi.sock
@@ -67,14 +84,47 @@ spec:
           resources: {{- toYaml .Values.controller.resources.csiProvisioner | nindent 12 }}
           securityContext:
             readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+              - ALL
+        - name: csi-resizer
+{{- if hasPrefix "/" .Values.image.csiResizer.repository }}
+          image: "{{ .Values.image.baseRepo }}{{ .Values.image.csiResizer.repository }}:{{ .Values.image.csiResizer.tag }}"
+{{- else }}
+          image: "{{ .Values.image.csiResizer.repository }}:{{ .Values.image.csiResizer.tag }}"
+{{- end }}
+          args:
+            - "-csi-address=$(ADDRESS)"
+            - "-v=2"
+            - "-leader-election"
+            - "--leader-election-namespace={{ .Release.Namespace }}"
+            - '-handle-volume-inuse-error=false'
+          env:
+            - name: ADDRESS
+              value: /csi/csi.sock
+          imagePullPolicy: {{ .Values.image.csiResizer.pullPolicy }}
+          volumeMounts:
+            - name: socket-dir
+              mountPath: /csi
+          resources: {{- toYaml .Values.controller.resources.csiResizer | nindent 12 }}
+          securityContext:
+            capabilities:
+              drop:
+              - ALL
+{{- if .Values.controller.enableSnapshotter }}
         - name: csi-snapshotter
-          image: "{{ .Values.image.registry }}/{{ .Values.image.csiSnapshotter.repository }}:{{ .Values.image.csiSnapshotter.tag }}"
+{{- if hasPrefix "/" .Values.image.csiSnapshotter.repository }}
+          image: "{{ .Values.image.baseRepo }}{{ .Values.image.csiSnapshotter.repository }}:{{ .Values.image.csiSnapshotter.tag }}"
+{{- else }}
+          image: "{{ .Values.image.csiSnapshotter.repository }}:{{ .Values.image.csiSnapshotter.tag }}"
+{{- end }}
           args:
             - "--v=2"
             - "--csi-address=$(ADDRESS)"
             - "--leader-election-namespace={{ .Release.Namespace }}"
             - "--leader-election"
             - "--timeout=1200s"
+            - "--retry-interval-max=30m"
           env:
             - name: ADDRESS
               value: /csi/csi.sock
@@ -83,12 +133,21 @@ spec:
           volumeMounts:
             - name: socket-dir
               mountPath: /csi
+          securityContext:
+            capabilities:
+              drop:
+              - ALL
+{{- end }}
         - name: liveness-probe
-          image: "{{ .Values.image.registry }}/{{ .Values.image.livenessProbe.repository }}:{{ .Values.image.livenessProbe.tag }}"
+{{- if hasPrefix "/" .Values.image.livenessProbe.repository }}
+          image: "{{ .Values.image.baseRepo }}{{ .Values.image.livenessProbe.repository }}:{{ .Values.image.livenessProbe.tag }}"
+{{- else }}
+          image: "{{ .Values.image.livenessProbe.repository }}:{{ .Values.image.livenessProbe.tag }}"
+{{- end }}
           args:
             - --csi-address=/csi/csi.sock
             - --probe-timeout=3s
-            - --health-port={{ .Values.controller.livenessProbe.healthPort }}
+            - --http-endpoint=localhost:{{ .Values.controller.livenessProbe.healthPort }}
             - --v=2
           imagePullPolicy: {{ .Values.image.livenessProbe.pullPolicy }}
           volumeMounts:
@@ -97,14 +156,22 @@ spec:
           resources: {{- toYaml .Values.controller.resources.livenessProbe | nindent 12 }}
           securityContext:
             readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+              - ALL
         - name: nfs
-          image: "{{ .Values.image.registry }}/{{ .Values.image.nfs.repository }}:{{ .Values.image.nfs.tag }}"
+{{- if hasPrefix "/" .Values.image.nfs.repository }}
+          image: "{{ .Values.image.baseRepo }}{{ .Values.image.nfs.repository }}:{{ .Values.image.nfs.tag }}"
+{{- else }}
+          image: "{{ .Values.image.nfs.repository }}:{{ .Values.image.nfs.tag }}"
+{{- end }}
           securityContext:
             privileged: true
             capabilities:
               add: ["SYS_ADMIN"]
+              drop:
+              - ALL
             allowPrivilegeEscalation: true
-            readOnlyRootFilesystem: true
           imagePullPolicy: {{ .Values.image.nfs.pullPolicy }}
           args:
             - "--v={{ .Values.controller.logLevel }}"
@@ -114,6 +181,7 @@ spec:
             - "--mount-permissions={{ .Values.driver.mountPermissions }}"
             - "--working-mount-dir={{ .Values.controller.workingMountDir }}"
             - "--default-ondelete-policy={{ .Values.controller.defaultOnDeletePolicy }}"
+            - "--use-tar-command-in-snapshot={{ .Values.controller.useTarCommandInSnapshot }}"
           env:
             - name: NODE_ID
               valueFrom:
@@ -121,15 +189,12 @@ spec:
                   fieldPath: spec.nodeName
             - name: CSI_ENDPOINT
               value: unix:///csi/csi.sock
-          ports:
-            - containerPort: {{ .Values.controller.livenessProbe.healthPort }}
-              name: healthz
-              protocol: TCP
           livenessProbe:
             failureThreshold: 5
             httpGet:
+              host: localhost
               path: /healthz
-              port: healthz
+              port: {{ .Values.controller.livenessProbe.healthPort }}
             initialDelaySeconds: 30
             timeoutSeconds: 10
             periodSeconds: 30
@@ -139,8 +204,6 @@ spec:
               mountPropagation: "Bidirectional"
             - mountPath: /csi
               name: socket-dir
-            - mountPath: {{ .Values.controller.workingMountDir }}
-              name: tmp-dir
           resources: {{- toYaml .Values.controller.resources.nfs | nindent 12 }}
       volumes:
         - name: pods-mount-dir
@@ -148,6 +211,4 @@ spec:
             path: {{ .Values.kubeletDir }}/pods
             type: Directory
         - name: socket-dir
-          emptyDir: {}
-        - name: tmp-dir
           emptyDir: {}
