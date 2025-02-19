@@ -80,7 +80,7 @@ spec:
 {{- if hasPrefix "/" .Values.image.externalSnapshotter.repository }}
           image: "{{ .Values.image.baseRepo }}{{ .Values.image.externalSnapshotter.repository }}:{{ .Values.image.externalSnapshotter.tag }}"
 {{- else }}
-          image: {{ .Values.image.externalSnapshotter.repository }}:{{ .Values.image.externalSnapshotter.tag }}
+          image: "{{ .Values.image.registry | default "docker.io" }}/{{ .Values.image.externalSnapshotter.repository }}:{{ .Values.image.externalSnapshotter.tag }}"
 {{- end }}
           args:
             - "--v=2"

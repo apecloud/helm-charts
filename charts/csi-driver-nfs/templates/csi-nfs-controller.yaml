@@ -63,7 +63,7 @@ spec:
 {{- if hasPrefix "/" .Values.image.csiProvisioner.repository }}
           image: "{{ .Values.image.baseRepo }}{{ .Values.image.csiProvisioner.repository }}:{{ .Values.image.csiProvisioner.tag }}"
 {{- else }}
-          image: "{{ .Values.image.csiProvisioner.repository }}:{{ .Values.image.csiProvisioner.tag }}"
+          image: "{{ .Values.image.registry | default "docker.io" }}/{{ .Values.image.csiProvisioner.repository }}:{{ .Values.image.csiProvisioner.tag }}"
 {{- end }}
           args:
             - "-v=2"
@@ -91,7 +91,7 @@ spec:
 {{- if hasPrefix "/" .Values.image.csiResizer.repository }}
           image: "{{ .Values.image.baseRepo }}{{ .Values.image.csiResizer.repository }}:{{ .Values.image.csiResizer.tag }}"
 {{- else }}
-          image: "{{ .Values.image.csiResizer.repository }}:{{ .Values.image.csiResizer.tag }}"
+          image: "{{ .Values.image.registry | default "docker.io" }}/{{ .Values.image.csiResizer.repository }}:{{ .Values.image.csiResizer.tag }}"
 {{- end }}
           args:
             - "-csi-address=$(ADDRESS)"
@@ -116,7 +116,7 @@ spec:
 {{- if hasPrefix "/" .Values.image.csiSnapshotter.repository }}
           image: "{{ .Values.image.baseRepo }}{{ .Values.image.csiSnapshotter.repository }}:{{ .Values.image.csiSnapshotter.tag }}"
 {{- else }}
-          image: "{{ .Values.image.csiSnapshotter.repository }}:{{ .Values.image.csiSnapshotter.tag }}"
+          image: "{{ .Values.image.registry | default "docker.io" }}/{{ .Values.image.csiSnapshotter.repository }}:{{ .Values.image.csiSnapshotter.tag }}"
 {{- end }}
           args:
             - "--v=2"
@@ -142,7 +142,7 @@ spec:
 {{- if hasPrefix "/" .Values.image.livenessProbe.repository }}
           image: "{{ .Values.image.baseRepo }}{{ .Values.image.livenessProbe.repository }}:{{ .Values.image.livenessProbe.tag }}"
 {{- else }}
-          image: "{{ .Values.image.livenessProbe.repository }}:{{ .Values.image.livenessProbe.tag }}"
+          image: "{{ .Values.image.registry | default "docker.io" }}/{{ .Values.image.livenessProbe.repository }}:{{ .Values.image.livenessProbe.tag }}"
 {{- end }}
           args:
             - --csi-address=/csi/csi.sock
@@ -163,7 +163,7 @@ spec:
 {{- if hasPrefix "/" .Values.image.nfs.repository }}
           image: "{{ .Values.image.baseRepo }}{{ .Values.image.nfs.repository }}:{{ .Values.image.nfs.tag }}"
 {{- else }}
-          image: "{{ .Values.image.nfs.repository }}:{{ .Values.image.nfs.tag }}"
+          image: "{{ .Values.image.registry | default "docker.io" }}/{{ .Values.image.registry | default "docker.io" }}/{{ .Values.image.nfs.repository }}:{{ .Values.image.nfs.tag }}"
 {{- end }}
           securityContext:
             privileged: true

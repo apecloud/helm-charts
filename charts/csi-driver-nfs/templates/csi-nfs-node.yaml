@@ -47,7 +47,7 @@ spec:
 {{- if hasPrefix "/" .Values.image.livenessProbe.repository }}
           image: "{{ .Values.image.baseRepo }}{{ .Values.image.livenessProbe.repository }}:{{ .Values.image.livenessProbe.tag }}"
 {{- else }}
-          image: "{{ .Values.image.livenessProbe.repository }}:{{ .Values.image.livenessProbe.tag }}"
+          image: "{{ .Values.image.registry | default "docker.io" }}/{{ .Values.image.livenessProbe.repository }}:{{ .Values.image.livenessProbe.tag }}"
 {{- end }}
           args:
             - --csi-address=/csi/csi.sock
@@ -68,7 +68,7 @@ spec:
 {{- if hasPrefix "/" .Values.image.nodeDriverRegistrar.repository }}
           image: "{{ .Values.image.baseRepo }}{{ .Values.image.nodeDriverRegistrar.repository }}:{{ .Values.image.nodeDriverRegistrar.tag }}"
 {{- else }}
-          image: "{{ .Values.image.nodeDriverRegistrar.repository }}:{{ .Values.image.nodeDriverRegistrar.tag }}"
+          image: "{{ .Values.image.registry | default "docker.io" }}/{{ .Values.image.nodeDriverRegistrar.repository }}:{{ .Values.image.nodeDriverRegistrar.tag }}"
 {{- end }}
           args:
             - --v=2
@@ -103,7 +103,7 @@ spec:
 {{- if hasPrefix "/" .Values.image.nfs.repository }}
           image: "{{ .Values.image.baseRepo }}{{ .Values.image.nfs.repository }}:{{ .Values.image.nfs.tag }}"
 {{- else }}
-          image: "{{ .Values.image.nfs.repository }}:{{ .Values.image.nfs.tag }}"
+          image: "{{ .Values.image.registry | default "docker.io" }}/{{ .Values.image.nfs.repository }}:{{ .Values.image.nfs.tag }}"
 {{- end }}
           args :
             - "--v={{ .Values.node.logLevel }}"
