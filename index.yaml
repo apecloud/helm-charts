@@ -52291,6 +52291,59 @@ entries:
     - https://github.com/apecloud/helm-charts/releases/download/gemini-0.9.0-alpha.0/gemini-0.9.0-alpha.0.tgz
     version: 0.9.0-alpha.0
   - apiVersion: v2
+    appVersion: 0.8.7-beta.1
+    created: "2025-05-07T10:06:52.121596267Z"
+    dependencies:
+    - condition: cubetran.enabled
+      name: cubetran
+      repository: https://apecloud.github.io/helm-charts
+      version: 0.6.1
+    - condition: victoria-metrics-cluster.enabled
+      name: victoria-metrics-cluster
+      repository: https://victoriametrics.github.io/helm-charts
+      version: 0.11.23
+    - condition: victoria-metrics-alert.enabled
+      name: victoria-metrics-alert
+      repository: file://../victoria-metrics-alert
+      version: 0.8.3-reload
+    - condition: loki.enabled
+      name: loki
+      repository: https://grafana.github.io/helm-charts
+      version: 5.42.1
+    - condition: kubeviewer.enabled
+      name: kubeviewer
+      repository: https://apecloud.github.io/helm-charts
+      version: 0.1.17
+    - condition: servicemirror.enabled
+      name: servicemirror
+      repository: https://apecloud.github.io/helm-charts
+      version: 0.3.1
+    - condition: cr-exporter.enabled
+      name: cr-exporter
+      repository: https://apecloud.github.io/helm-charts
+      version: 0.1.0-alpha.13
+    description: KubeBlocks Monitor Controller Operator
+    digest: 5b0e44e921a98e7391ccc04f97d184df0354b9e0a28753d9c11070833f47e01c
+    home: https://www.kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - kubernetes
+    - kubeblocks
+    - monitor
+    - oteld
+    - open telemetry
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/gemini/
+    name: gemini
+    sources:
+    - https://github.com/apecloud/gemini/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/gemini-0.8.7-beta.1/gemini-0.8.7-beta.1.tgz
+    version: 0.8.7-beta.1
+  - apiVersion: v2
     appVersion: 0.8.6
     created: "2025-04-24T02:47:55.109836136Z"
     dependencies:
@@ -64295,6 +64348,35 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/gemini-monitor-0.9.0-alpha.0/gemini-monitor-0.9.0-alpha.0.tgz
     version: 0.9.0-alpha.0
+  - apiVersion: v2
+    appVersion: 0.8.0-alpha.0
+    created: "2025-05-07T10:06:52.289418302Z"
+    dependencies:
+    - condition: pyroscope.enabled
+      name: pyroscope
+      repository: https://grafana.github.io/helm-charts
+      version: 1.12.0
+    description: A Helm chart for Kubernetes
+    digest: 1e533a01913128cddbd8e2aca22707c6d2111ff46f5d5fd33320850ba724788f
+    home: https://www.kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - kubernetes
+    - kubeblocks
+    - monitor
+    - oteld
+    - open telemetry
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/gemini/
+    name: gemini-monitor
+    sources:
+    - https://github.com/apecloud/gemini/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/gemini-monitor-0.8.7-beta.1/gemini-monitor-0.8.7-beta.1.tgz
+    version: 0.8.7-beta.1
   - apiVersion: v2
     appVersion: 0.8.0-alpha.0
     created: "2025-04-24T02:47:55.234237506Z"
@@ -260868,4 +260950,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/zookeeper-cluster-0.7.0/zookeeper-cluster-0.7.0.tgz
     version: 0.7.0
-generated: "2025-05-07T08:34:10.256385327Z"
+generated: "2025-05-07T10:06:52.318929783Z"
