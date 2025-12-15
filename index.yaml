@@ -450,6 +450,34 @@ entries:
     - https://github.com/apecloud/helm-charts/releases/download/apecloud-mysql-1.1.0-alpha.0/apecloud-mysql-1.1.0-alpha.0.tgz
     version: 1.1.0-alpha.0
   - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 8.0.30
+    created: "2025-12-15T01:49:31.932154655Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: ApeCloud MySQL is a database that is compatible with MySQL syntax
+      and achieves high availability through the utilization of the RAFT consensus
+      protocol.
+    digest: 533793c4faadafcd7639bf23d309aa0bc558d9f3389ee821c8bf606fb49e2c49
+    home: https://kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    maintainers:
+    - name: xuriwuyun
+      url: https://github.com/apecloud/kubeblocks/
+    name: apecloud-mysql
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/apecloud-mysql-1.1.0-alpha.0/apecloud-mysql-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
       addon.kubeblocks.io/kubeblocks-version: '>=0.9.0'
       addon.kubeblocks.io/model: RDBMS
       addon.kubeblocks.io/provider: community
@@ -19485,6 +19513,35 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 25.4.4
+    created: "2025-12-15T01:49:32.075425162Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: ClickHouse is an open-source column-oriented OLAP database management
+      system. Use it to boost your database performance while providing linear scalability
+      and hardware efficiency.
+    digest: c0231db1a5f93b1a8fefeb26d97017c907811dc52beac830a5dcf5f6a274d034
+    home: https://clickhouse.com/
+    icon: https://bitnami.com/assets/stacks/clickhouse/img/clickhouse-stack-220x234.png
+    keywords:
+    - database
+    - sharding
+    maintainers:
+    - name: sophon-zt
+      url: https://github.com/apecloud/kubeblocks/
+    name: clickhouse
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/clickhouse-1.1.0-alpha.1/clickhouse-1.1.0-alpha.1.tgz
+    version: 1.1.0-alpha.1
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 25.4.4
     created: "2025-11-12T02:52:29.302114001Z"
     dependencies:
     - alias: extra
@@ -28239,6 +28296,38 @@ entries:
       a reliable way to store data that needs to be accessed by a distributed system
       or cluster of machines.
     digest: 04e6c54254648cd967a36381efff0a994310dc9f68fe79be3975bc2e8063b659
+    home: https://etcd.io/
+    icon: https://bitnami.com/assets/stacks/etcd/img/etcd-stack-220x234.png
+    keywords:
+    - etcd
+    - cluster
+    - database
+    - cache
+    - key-value
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: etcd
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/etcd-1.1.0-alpha.0/etcd-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: key-value
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 3.6.1
+    created: "2025-12-15T01:49:32.364731393Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Etcd is a strongly consistent, distributed key-value store that provides
+      a reliable way to store data that needs to be accessed by a distributed system
+      or cluster of machines.
+    digest: edcb0aa4ed74afb0c1e9350d84a91d98f530897e974476f83166c22db368ac3d
     home: https://etcd.io/
     icon: https://bitnami.com/assets/stacks/etcd/img/etcd-stack-220x234.png
     keywords:
@@ -59522,6 +59611,38 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 0.3.2
+    created: "2025-12-15T01:49:32.63412679Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: An open-source, cloud-native, distributed time-series database with
+      PromQL/SQL/Python supported.
+    digest: c7ccfbc5a7ab441988bd275f4b09e6306188fec602da5469e75b480fec7a6d47
+    home: https://greptime.com/
+    keywords:
+    - kubernetes
+    - promql
+    - database
+    - time-series database
+    maintainers:
+    - name: GreptimeTeam
+      url: https://github.com/GreptimeTeam
+    - name: sh2
+      url: https://github.com/sh2
+    name: greptimedb
+    sources:
+    - https://github.com/GreptimeTeam/greptimedb
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/greptimedb-1.1.0-alpha.0/greptimedb-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: time-series
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 0.3.2
     created: "2025-09-11T08:44:52.213787766Z"
     dependencies:
     - alias: extra
@@ -63710,6 +63831,62 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.7.11
+    created: "2025-12-15T01:49:32.782319025Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: InfluxDB is an open source time-series database. It is a core component
+      of the TICK (Telegraf, InfluxDB(TM), Chronograf, Kapacitor) stack.
+    digest: 828c8740ba7ec64912f2f3973d1a28636ac16f21cbecf54a341b2ad6c91b55c7
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/influxdb/img/influxdb-stack-220x234.png
+    keywords:
+    - influxdb
+    - tick
+    - database
+    - timeseries
+    name: influxdb
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/influxdb-1.1.0-alpha.0/influxdb-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: time-series
+      category: Database
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 2.7.11
+    created: "2025-12-05T04:29:00.617964775Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: InfluxDB is an open source time-series database. It is a core component
+      of the TICK (Telegraf, InfluxDB(TM), Chronograf, Kapacitor) stack.
+    digest: 0d29b5630ff22c7c62ffd599d792d5891280bde29d3c93ce21c7ea0649229715
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/influxdb/img/influxdb-stack-220x234.png
+    keywords:
+    - influxdb
+    - tick
+    - database
+    - timeseries
+    name: influxdb
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/influxdb-1.0.3-beta.0/influxdb-1.0.3-beta.0.tgz
+    version: 1.0.3-beta.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: time-series
+      category: Database
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 2.7.11
     created: "2025-11-26T08:03:30.108306191Z"
     dependencies:
     - alias: extra
@@ -63719,62 +63896,6 @@ entries:
     description: InfluxDB is an open source time-series database. It is a core component
       of the TICK (Telegraf, InfluxDB(TM), Chronograf, Kapacitor) stack.
     digest: 1f16e24ec8865aa5da1b23c620b89fac0b3a670a34bd1ee61332058f07c2da12
-    home: https://bitnami.com
-    icon: https://bitnami.com/assets/stacks/influxdb/img/influxdb-stack-220x234.png
-    keywords:
-    - influxdb
-    - tick
-    - database
-    - timeseries
-    name: influxdb
-    type: application
-    urls:
-    - https://github.com/apecloud/helm-charts/releases/download/influxdb-1.0.3-beta.0/influxdb-1.0.3-beta.0.tgz
-    version: 1.0.3-beta.0
-  - annotations:
-      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
-      addon.kubeblocks.io/model: time-series
-      category: Database
-      licenses: Apache-2.0
-    apiVersion: v2
-    appVersion: 2.7.11
-    created: "2025-11-14T09:22:27.1868888Z"
-    dependencies:
-    - alias: extra
-      name: kblib
-      repository: file://../kblib
-      version: 0.1.0
-    description: InfluxDB is an open source time-series database. It is a core component
-      of the TICK (Telegraf, InfluxDB(TM), Chronograf, Kapacitor) stack.
-    digest: c318016405836c48d149bf2f6ffb499825398fb164351497ef7c1e11c76d82ec
-    home: https://bitnami.com
-    icon: https://bitnami.com/assets/stacks/influxdb/img/influxdb-stack-220x234.png
-    keywords:
-    - influxdb
-    - tick
-    - database
-    - timeseries
-    name: influxdb
-    type: application
-    urls:
-    - https://github.com/apecloud/helm-charts/releases/download/influxdb-1.0.3-beta.0/influxdb-1.0.3-beta.0.tgz
-    version: 1.0.3-beta.0
-  - annotations:
-      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
-      addon.kubeblocks.io/model: time-series
-      category: Database
-      licenses: Apache-2.0
-    apiVersion: v2
-    appVersion: 2.7.11
-    created: "2025-11-20T03:46:29.914843605Z"
-    dependencies:
-    - alias: extra
-      name: kblib
-      repository: file://../kblib
-      version: 0.1.0
-    description: InfluxDB is an open source time-series database. It is a core component
-      of the TICK (Telegraf, InfluxDB(TM), Chronograf, Kapacitor) stack.
-    digest: a8111edb9bb3f4ba659ae13dcba4515bb06c2fc808599abd1ac5f3fa3bc01759
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/influxdb/img/influxdb-stack-220x234.png
     keywords:
@@ -63850,7 +63971,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.7.11
-    created: "2025-12-05T04:29:00.617964775Z"
+    created: "2025-11-14T09:22:27.1868888Z"
     dependencies:
     - alias: extra
       name: kblib
@@ -63858,7 +63979,7 @@ entries:
       version: 0.1.0
     description: InfluxDB is an open source time-series database. It is a core component
       of the TICK (Telegraf, InfluxDB(TM), Chronograf, Kapacitor) stack.
-    digest: 0d29b5630ff22c7c62ffd599d792d5891280bde29d3c93ce21c7ea0649229715
+    digest: c318016405836c48d149bf2f6ffb499825398fb164351497ef7c1e11c76d82ec
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/influxdb/img/influxdb-stack-220x234.png
     keywords:
@@ -63887,6 +64008,34 @@ entries:
     description: InfluxDB is an open source time-series database. It is a core component
       of the TICK (Telegraf, InfluxDB(TM), Chronograf, Kapacitor) stack.
     digest: 302e4fa963b4e035398cbf196fdc64f8dee84b5f9d35438b98f7642ec102b689
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/influxdb/img/influxdb-stack-220x234.png
+    keywords:
+    - influxdb
+    - tick
+    - database
+    - timeseries
+    name: influxdb
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/influxdb-1.0.3-beta.0/influxdb-1.0.3-beta.0.tgz
+    version: 1.0.3-beta.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: time-series
+      category: Database
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 2.7.11
+    created: "2025-11-20T03:46:29.914843605Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: InfluxDB is an open source time-series database. It is a core component
+      of the TICK (Telegraf, InfluxDB(TM), Chronograf, Kapacitor) stack.
+    digest: a8111edb9bb3f4ba659ae13dcba4515bb06c2fc808599abd1ac5f3fa3bc01759
     home: https://bitnami.com
     icon: https://bitnami.com/assets/stacks/influxdb/img/influxdb-stack-220x234.png
     keywords:
@@ -64862,6 +65011,40 @@ entries:
       real-time pipelines and can be used as a message broker or as a replacement
       for a log aggregation solution for big data applications.
     digest: 0d5d34dd8e19870555ea03160df525ef96f9e8236949407bcf6b6bcc1b379b44
+    home: https://kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - kafka
+    - kraft
+    - streaming
+    - producer
+    - consumer
+    maintainers:
+    - name: caiq1nyu
+      url: https://github.com/apecloud/kubeblocks/
+    - name: vipshop
+      url: https://github.com/vipshop
+    name: kafka
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/kafka-1.1.0-alpha.0/kafka-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: streaming
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 3.3.2
+    created: "2025-12-15T01:49:32.945372051Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Apache Kafka is a distributed streaming platform designed to build
+      real-time pipelines and can be used as a message broker or as a replacement
+      for a log aggregation solution for big data applications.
+    digest: 47ffa9627b8c88c0ea6f5fd7d5e9c741e55b5b55e3c9484f69025b1af411bf02
     home: https://kubeblocks.io/
     icon: https://kubeblocks.io/img/logo.png
     keywords:
@@ -87941,6 +88124,28 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 1.16.0
+    created: "2025-12-15T01:49:33.218297213Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Large language models.
+    digest: 52d556b4d227bab68a0b560cbbe43392cda26ad5b92f8f4df00256f3c89fa01d
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: llm
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/llm-1.1.0-alpha.0/llm-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: LLM
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 1.16.0
     created: "2025-09-11T08:44:53.155095727Z"
     dependencies:
     - alias: extra
@@ -89815,6 +90020,30 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 3.0.0
+    created: "2025-12-15T01:49:33.358736747Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Loki is a horizontally-scalable, highly-available, multi-tenant log
+      aggregation system inspired by Prometheus. It is designed to be very cost effective
+      and easy to operate.
+    digest: a7758d5f040607973687ce81cc12b9722cd1e7034b407e2bb9143c5af43979e6
+    maintainers:
+    - name: Chen-speculation
+      url: https://github.com/apecloud/kubeblocks/
+    name: loki
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/loki-1.1.0-alpha.0/loki-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: tsdb
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 3.0.0
     created: "2025-12-10T02:44:06.275869305Z"
     dependencies:
     - alias: extra
@@ -90415,6 +90644,33 @@ entries:
     description: MariaDB is a high performance open source relational database management
       system that is widely used for web and application servers
     digest: ad53ae27a4a101898d89d4ead90e455737c3e8a5d0e280b4402a80234eabc6a7
+    home: https://kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    maintainers:
+    - name: yinmin
+      url: https://github.com/apecloud/kubeblocks/
+    name: mariadb
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/mariadb-1.1.0-alpha.0/mariadb-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 10.6.15
+    created: "2025-12-15T01:49:33.508231886Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: MariaDB is a high performance open source relational database management
+      system that is widely used for web and application servers
+    digest: 303eae5a9249af8d3b1b316e050b94d6c4f0debb9de8f222cc11c8d410787afd
     home: https://kubeblocks.io/
     icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
     maintainers:
@@ -92293,6 +92549,31 @@ entries:
       addon.kubeblocks.io/model: vector
       addon.kubeblocks.io/provider: community
     apiVersion: v2
+    created: "2025-12-15T01:49:33.636872938Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: A cloud-native vector database, storage for next generation AI applications.
+    digest: 52f01118ead69f30611c84d16405b373490bd3a8c180b18055d232596ca01314
+    home: https://milvus.io/
+    icon: https://github.com/milvus-io/artwork/blob/master/horizontal/color/milvus-horizontal-color.png
+    maintainers:
+    - name: leon-inf
+      url: https://github.com/apecloud/kubeblocks/
+    name: milvus
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/milvus-1.1.0-alpha.0/milvus-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: vector
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
     created: "2025-11-20T03:06:34.79577233Z"
     dependencies:
     - alias: extra
@@ -93857,14 +94138,14 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: master
-    created: "2025-12-10T02:44:06.665225653Z"
+    created: "2025-11-20T03:13:03.155631402Z"
     dependencies:
     - alias: extra
       name: kblib
       repository: file://../kblib
       version: 0.1.0
     description: High Performance, Kubernetes Native Object Storage
-    digest: c61dbbdedc9d880d8ac89625e0f02275b2932ea4c242d9f0098b4b58a18e61ab
+    digest: fefd87e57c71571fdd67195d85d58b81293022f7841272d1ef07616c98ccae65
     home: https://min.io
     icon: https://min.io/resources/img/logo/MINIO_wordmark.png
     keywords:
@@ -93872,7 +94153,7 @@ entries:
     - object-storage
     - S3
     maintainers:
-    - name: ldming
+    - name: fengluodb
       url: https://github.com/apecloud/kubeblocks/
     name: minio
     sources:
@@ -93973,14 +94254,14 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: master
-    created: "2025-11-20T03:13:03.155631402Z"
+    created: "2025-12-10T02:44:06.665225653Z"
     dependencies:
     - alias: extra
       name: kblib
       repository: file://../kblib
       version: 0.1.0
     description: High Performance, Kubernetes Native Object Storage
-    digest: fefd87e57c71571fdd67195d85d58b81293022f7841272d1ef07616c98ccae65
+    digest: c61dbbdedc9d880d8ac89625e0f02275b2932ea4c242d9f0098b4b58a18e61ab
     home: https://min.io
     icon: https://min.io/resources/img/logo/MINIO_wordmark.png
     keywords:
@@ -93988,7 +94269,36 @@ entries:
     - object-storage
     - S3
     maintainers:
-    - name: fengluodb
+    - name: ldming
+      url: https://github.com/apecloud/kubeblocks/
+    name: minio
+    sources:
+    - https://github.com/minio/minio
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/minio-1.1.0-alpha.0/minio-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: object-storage
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: master
+    created: "2025-12-15T01:49:33.746112297Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: High Performance, Kubernetes Native Object Storage
+    digest: b065f028d57741fdf7a1ca4d60f86c1d3e8230bd5cd69771182db48575e94be1
+    home: https://min.io
+    icon: https://min.io/resources/img/logo/MINIO_wordmark.png
+    keywords:
+    - storage
+    - object-storage
+    - S3
+    maintainers:
+    - name: ldming
       url: https://github.com/apecloud/kubeblocks/
     name: minio
     sources:
@@ -94513,14 +94823,14 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 5.0.5
-    created: "2025-12-10T02:44:06.790377548Z"
+    created: "2025-12-15T01:49:33.888962076Z"
     dependencies:
     - alias: extra
       name: kblib
       repository: file://../kblib
       version: 0.1.0
     description: A Helm chart for Kubernetes
-    digest: 056a15bf59643608f1863e91bf94efd134d35e23e7220efad91603385599b9e1
+    digest: c6274ba5fee7e2d6a23c2453f732af8aaea45439c28572e7d46646ecaad5427e
     maintainers:
     - name: yabinji
       url: https://github.com/yabinji
@@ -94617,6 +94927,30 @@ entries:
       version: 0.1.0
     description: A Helm chart for Kubernetes
     digest: 4c3b160d7d0b547abb86f35fc3d534a80316dc854848720c9907287a82c7f444
+    maintainers:
+    - name: yabinji
+      url: https://github.com/yabinji
+    - name: shanshanying
+      url: https://github.com/apecloud/kubeblocks/
+    name: mogdb
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/mogdb-1.1.0-alpha.0/mogdb-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 5.0.5
+    created: "2025-12-10T02:44:06.790377548Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: 056a15bf59643608f1863e91bf94efd134d35e23e7220efad91603385599b9e1
     maintainers:
     - name: yabinji
       url: https://github.com/yabinji
@@ -95069,6 +95403,38 @@ entries:
     description: MongoDB is a document database designed for ease of application development
       and scaling.
     digest: a25ac32479164b05c2eb409a21d357cd9f9eb762494ed8d348d7f1f151c73129
+    home: https://www.mongodb.com
+    icon: https://bitnami.com/assets/stacks/mongodb/img/mongodb-stack-220x234.png
+    keywords:
+    - mongodb
+    - database
+    - nosql
+    - cluster
+    - replicaset
+    - replication
+    maintainers:
+    - name: xuriwuyun
+      url: https://github.com/apecloud/kubeblocks/
+    name: mongodb
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/mongodb-1.1.0-alpha.0/mongodb-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: document
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: "5.0"
+    created: "2025-12-15T01:49:34.039720102Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: MongoDB is a document database designed for ease of application development
+      and scaling.
+    digest: 240f7eb068e06e0c15d5fccd688f54c913283f8bbcc44be06b4b98164b6ea0df
     home: https://www.mongodb.com
     icon: https://bitnami.com/assets/stacks/mongodb/img/mongodb-stack-220x234.png
     keywords:
@@ -99357,6 +99723,33 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 5.7.44
+    created: "2025-12-15T01:49:34.259245678Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: MySQL is a widely used, open-source relational database management
+      system (RDBMS)
+    digest: b0347e7f7b5a742bf20461fcc6ca2a777d90a7860f2416dcacd1ec04c079cc6c
+    home: https://kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    maintainers:
+    - name: xuriwuyun
+      url: https://github.com/apecloud/kubeblocks/
+    name: mysql
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/mysql-1.1.0-alpha.0/mysql-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=0.7.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 5.7.44
     created: "2025-09-24T08:12:22.352081639Z"
     dependencies:
     - alias: extra
@@ -101465,6 +101858,39 @@ entries:
       large volumes of data with milliseconds of latency, scale up quickly, and have
       the ability to perform fast graph analytics.
     digest: 0057eae83675647e3e89e329e7f8ca8b64001c1e55fc16d8ad8f80a096d81fe4
+    home: https://nebula-graph.io
+    keywords:
+    - kubernetes
+    - nebula-graph
+    - database
+    - graph database
+    maintainers:
+    - email: shanshan.ying@apecloud.com
+      name: shanshanying
+    - email: xuntao.cheng@vesoft.com
+      name: Xuntao Cheng
+    name: nebula
+    sources:
+    - https://github.com/vesoft-inc/nebula
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/nebula-1.1.0-alpha.0/nebula-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: graph
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: v3.8.0
+    created: "2025-12-15T01:49:34.398720198Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: NebulaGraph is a popular open-source graph database that can handle
+      large volumes of data with milliseconds of latency, scale up quickly, and have
+      the ability to perform fast graph analytics.
+    digest: 4b5939512e87d3902f32fe618e104829c2b77d54a5f44400af28782dd4318ae8
     home: https://nebula-graph.io
     keywords:
     - kubernetes
@@ -109140,6 +109566,34 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 5.26.5
+    created: "2025-12-15T01:49:34.534326956Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Neo4j is a highly scalable, robust native graph database.
+    digest: e29c4790d75b8c6d5ec25c2d133516d85268d7b06d81af9d7a9abaf6356ccf76
+    home: https://www.neo4j.com/
+    icon: https://dist.neo4j.com/wp-content/uploads/20230926084108/Logo_FullColor_RGB_TransBG.svg
+    keywords:
+    - neo4j
+    - database
+    - graph
+    maintainers:
+    - name: xuriwuyun
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: neo4j
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/neo4j-1.1.0-alpha.0/neo4j-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: message
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 5.26.5
     created: "2025-09-11T08:44:55.309733766Z"
     dependencies:
     - alias: extra
@@ -109494,6 +109948,34 @@ entries:
       It separates storage and compute and substitutes the PostgreSQL storage layer
       by redistributing data across a cluster of nodes.
     digest: 491df880d4f5bef1fa4e7ded11106fd2c3227b0bfdf8fadd9783ebc54f0725e2
+    home: https://kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: neon
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/neon-1.1.0-alpha.0/neon-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: pg14-1.0.0
+    created: "2025-12-15T01:49:34.694034132Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Neon is a serverless open-source alternative to AWS Aurora Postgres.
+      It separates storage and compute and substitutes the PostgreSQL storage layer
+      by redistributing data across a cluster of nodes.
+    digest: 44d54cc19fd1a52644b76600cf2469ffba6fce5173eff8856a21288362dd3fcd
     home: https://kubeblocks.io/
     icon: https://kubeblocks.io/img/logo.png
     maintainers:
@@ -111831,6 +112313,31 @@ entries:
     description: OceanBase has served over 400 customers across the globe and has
       been supporting all mission critical systems in Alipay.
     digest: 4e836cc0199661298ac08a936070ff0ad882adc53733a8eec0edc628283ec0d9
+    maintainers:
+    - name: Powerfooi
+      url: https://github.com/powerfooI
+    - name: shanshanying
+      url: https://github.com/apecloud/kubeblocks/
+    name: oceanbase-ce
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/oceanbase-ce-1.1.0-alpha.0/oceanbase-ce-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 4.3.0.1-100000242024032211
+    created: "2025-12-15T01:49:34.839097322Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: OceanBase has served over 400 customers across the globe and has
+      been supporting all mission critical systems in Alipay.
+    digest: 3589a09b095d9cf4389ea725c7b561e95a2d7282499f49e3043e5026ec0edb97
     maintainers:
     - name: Powerfooi
       url: https://github.com/powerfooI
@@ -123565,6 +124072,28 @@ entries:
     - https://github.com/apecloud/helm-charts/releases/download/opensearch-1.1.0-alpha.0/opensearch-1.1.0-alpha.0.tgz
     version: 1.1.0-alpha.0
   - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: search-engine
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 2.7.0
+    created: "2025-12-15T01:49:35.003674607Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Open source distributed and RESTful search engine.
+    digest: 6b062a779fe7e8e22515d3e2c026d8c23a89f30952cd6160c0d29bfc5932a921
+    maintainers:
+    - name: iziang
+      url: https://github.com/apecloud/kubeblocks/
+    name: opensearch
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/opensearch-1.1.0-alpha.0/opensearch-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
       addon.kubeblocks.io/kubeblocks-version: '>=0.9.0'
       addon.kubeblocks.io/model: search-engine
       addon.kubeblocks.io/provider: community
@@ -126085,6 +126614,33 @@ entries:
     - https://github.com/apecloud/helm-charts/releases/download/orchestrator-1.1.0-alpha.0/orchestrator-1.1.0-alpha.0.tgz
     version: 1.1.0-alpha.0
   - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: HA
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 3.2.6
+    created: "2025-12-15T01:49:35.141366377Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Orchestrator is a MySQL high availability and replication management
+      tool, runs as a service and provides command line access, HTTP API and Web interface.
+    digest: 51f4fd69f2485b2c79782cb6f107b386beb3ac12361097abd5bafa5181d5d184
+    home: https://kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: orchestrator
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/orchestrator-1.1.0-alpha.0/orchestrator-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
       addon.kubeblocks.io/kubeblocks-version: '>=0.9.0'
       addon.kubeblocks.io/model: HA
       addon.kubeblocks.io/provider: community
@@ -126613,6 +127169,34 @@ entries:
       approach to database capacity, capabilities and performance to the world's most-loved
       database platform.
     digest: 43205b8a3797d3871eeaf7a813607a4779a4736db5d30d0802f455d938ab3553
+    home: https://kubeblocks.io/
+    icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
+    maintainers:
+    - name: 1aal
+      url: https://github.com/apecloud/kubeblocks/
+    name: orioledb
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/orioledb-1.1.0-alpha.0/orioledb-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 16.4.0
+    created: "2025-12-15T01:49:35.282295101Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: OrioleDB is a new storage engine for PostgreSQL, bringing a modern
+      approach to database capacity, capabilities and performance to the world's most-loved
+      database platform.
+    digest: 47dc7bb40f3d273b6debe16801204a3fd3f61c247c7f26678190b4dd38e2c53a
     home: https://kubeblocks.io/
     icon: https://github.com/apecloud/kubeblocks/raw/main/img/logo.png
     maintainers:
@@ -134036,6 +134620,35 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 2.3.0
+    created: "2025-12-15T01:49:35.422311994Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: PolarDB-X is a cloud native distributed SQL Database designed for
+      high concurrency, massive storage, complex querying scenarios.
+    digest: 7832cbc122d0b8bf1b5617ef6586e05e5e05fd948a9d63dd611589988fe95c84
+    home: https://polardbx.com/home
+    keywords:
+    - polardbx
+    - database
+    - distributed
+    - cloud-native
+    maintainers:
+    - email: vettal.wd@alibaba-inc.com
+      name: Vettal Wu
+    name: polardbx
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/polardbx-1.1.0-alpha.0/polardbx-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 2.3.0
     created: "2025-09-11T08:44:56.59860137Z"
     dependencies:
     - alias: extra
@@ -135582,6 +136195,35 @@ entries:
     description: A PostgreSQL (with Patroni HA) cluster definition Helm chart for
       Kubernetes
     digest: fd2a9c7fe275dd0c186098ab71fb6b6819044cefc10ab2c9f4ef2b5e48ecc3a0
+    home: https://kubeblocks.io/
+    icon: https://www.postgresql.org/media/img/about/press/elephant.png
+    maintainers:
+    - name: ldming
+      url: https://github.com/apecloud/kubeblocks/
+    - name: dingshun-cmss
+      url: https://github.com/dingshun-cmss
+    name: postgresql
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/postgresql-1.1.0-alpha.0/postgresql-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 17.5.0
+    created: "2025-12-15T01:49:35.571775477Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: A PostgreSQL (with Patroni HA) cluster definition Helm chart for
+      Kubernetes
+    digest: 97c7cf0394aac5a07fbbae2ca0debd77c431dd972769a8646ef6fb5b9cfccf39
     home: https://kubeblocks.io/
     icon: https://www.postgresql.org/media/img/about/press/elephant.png
     maintainers:
@@ -138374,7 +139016,7 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 3.0.2
-    created: "2025-08-25T02:37:02.270873892Z"
+    created: "2025-12-15T01:49:35.736332324Z"
     dependencies:
     - alias: extra
       name: kblib
@@ -138382,7 +139024,7 @@ entries:
       version: 0.1.0
     description: Apache Pulsar is an open-source, distributed messaging and streaming
       platform built for the cloud.
-    digest: 74499e5d8227096ac46b49ebe55bf6c64e603bc7b832895e8269d293b653550e
+    digest: 954b6c2ca5fb45939bb20019d7caf85ee160a95dde27958754e88975aa807b37
     home: https://pulsar.apache.org/
     icon: https://pulsar.apache.org/img/logo-black.svg
     keywords:
@@ -138523,6 +139165,41 @@ entries:
     description: Apache Pulsar is an open-source, distributed messaging and streaming
       platform built for the cloud.
     digest: 765d43861d87db81306bea7576da9f4867fa6e135f924d7aa16ffe53285b176f
+    home: https://pulsar.apache.org/
+    icon: https://pulsar.apache.org/img/logo-black.svg
+    keywords:
+    - pulsar
+    - kafka
+    - kop
+    - streaming
+    - messaging
+    - cloud-native
+    - message queue
+    - producer
+    - consumer
+    maintainers:
+    - name: caiq1nyu
+      url: https://github.com/apecloud/kubeblocks/
+    name: pulsar
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/pulsar-1.1.0-alpha.0/pulsar-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: streaming
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 3.0.2
+    created: "2025-08-25T02:37:02.270873892Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Apache Pulsar is an open-source, distributed messaging and streaming
+      platform built for the cloud.
+    digest: 74499e5d8227096ac46b49ebe55bf6c64e603bc7b832895e8269d293b653550e
     home: https://pulsar.apache.org/
     icon: https://pulsar.apache.org/img/logo-black.svg
     keywords:
@@ -141304,6 +141981,33 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 1.15.4
+    created: "2025-12-15T01:49:35.879956714Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: High-performance, massive-scale Vector Database for the next generation
+      of AI.
+    digest: 95d7ac995516e6b80911e31c8280572c2be36788eb73ad3fa9fc1fae6d73c898
+    home: https://qdrant.tech/
+    icon: https://qdrant.tech/images/logo_with_text.svg
+    maintainers:
+    - name: iziang
+      url: https://github.com/apecloud/kubeblocks/
+    name: qdrant
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/qdrant-1.1.0-alpha.0/qdrant-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: vector
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 1.15.4
     created: "2025-09-23T07:53:09.726910749Z"
     dependencies:
     - alias: extra
@@ -142940,6 +143644,35 @@ entries:
       addon.kubeblocks.io/model: message
       addon.kubeblocks.io/provider: community
     apiVersion: v2
+    appVersion: 3.13.7
+    created: "2025-12-15T01:49:36.025957197Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: RabbitMQ is a reliable and mature messaging and streaming broker.
+    digest: 1d1e7b820308d71c932abede930acaab99f83df68cc14517748163d0340bd3f4
+    home: https://www.rabbitmq.com/
+    icon: https://www.rabbitmq.com/img/rabbitmq-logo-with-name.svg
+    keywords:
+    - rabbitmq
+    - database
+    - message
+    - broker
+    maintainers:
+    - name: xuriwuyun
+      url: https://github.com/apecloud/kubeblocks/deploy
+    name: rabbitmq
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/rabbitmq-1.1.0-alpha.0/rabbitmq-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: message
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
     appVersion: 3.13.2
     created: "2025-09-25T07:38:18.469110292Z"
     dependencies:
@@ -143427,6 +144160,40 @@ entries:
       is key-value, but many different kind of values are supported: Strings, Lists,
       Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.'
     digest: 3871301a2262cfc38b757fe09d688fc021d9be086b658ab38ce42b0febad2cb2
+    home: https://redis.io/
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - database
+    - nosql
+    - replication
+    - redis cluster
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    - name: wangyelei
+      url: https://github.com/apecloud/kubeblocks/
+    name: redis
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/redis-1.1.0-alpha.0/redis-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: key-value
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 7.2.7
+    created: "2025-12-15T01:49:36.161039667Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: 'Redis is an in-memory database that persists on disk. The data model
+      is key-value, but many different kind of values are supported: Strings, Lists,
+      Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.'
+    digest: 4f4cac5ce3fa63fb3cbe0ebc86e04fe6f34f338b46c6b5641e78625ecae8369e
     home: https://redis.io/
     icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
     keywords:
@@ -146242,6 +147009,35 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: v1.0.0
+    created: "2025-12-15T01:49:36.33498837Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: RisingWave is a distributed SQL streaming database that enables cost-efficient
+      and reliable processing of streaming data.
+    digest: d3d3693b0a63c23fbaaa45aaca0c6050ee10e00343d8a87f3502c0905065603a
+    home: https://www.risingwave.com
+    keywords:
+    - risingwave
+    - streaming-processing
+    - cloud-native
+    - real-time
+    maintainers:
+    - name: RisingWave Labs
+      url: https://www.risingwave-labs.com
+    name: risingwave
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/risingwave-1.1.0-alpha.0/risingwave-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: streaming
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: v1.0.0
     created: "2025-09-11T08:44:57.943790682Z"
     dependencies:
     - alias: extra
@@ -147688,6 +148484,39 @@ entries:
       addon.kubeblocks.io/provider: apecloud
     apiVersion: v2
     appVersion: 4.9.6
+    created: "2025-12-15T01:49:36.471562625Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: RocketMQ is a distributed messaging and streaming platform originally
+      developed by Alibaba, featuring high throughput, low latency, and strong reliability
+      for processing millions of messages per second.
+    digest: 433ba466acaf260c56cdc7cd2fa64795e6eb00fa343b4d120a7658c2d0cd642c
+    home: https://kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    keywords:
+    - rocketmq
+    - streaming
+    - producer
+    - consumer
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: rocketmq
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/rocketmq-1.1.0-alpha.0/rocketmq-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: streaming
+      addon.kubeblocks.io/provider: apecloud
+    apiVersion: v2
+    appVersion: 4.9.6
     created: "2025-10-22T10:07:57.232143229Z"
     dependencies:
     - alias: extra
@@ -148766,6 +149595,31 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 3.3.0
+    created: "2025-12-15T01:49:36.580780598Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: A Linux Foundation project, is the next-generation data platform
+      designed to make data-intensive real-time analytics fast and easy.
+    digest: 308679d7993f86c94df8aaa6ac2fa6e39de4f9b552feab6aa99aea58b787ac95
+    maintainers:
+    - name: yandongxiao
+      url: https://github.com/yandongxiao
+    - name: iziang
+      url: https://github.com/apecloud/kubeblocks/
+    name: starrocks-ce
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/starrocks-ce-1.1.0-alpha.0/starrocks-ce-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 3.3.0
     created: "2025-09-11T08:44:58.553151678Z"
     dependencies:
     - alias: extra
@@ -149314,6 +150168,41 @@ entries:
       database optimized for Internet of Things (IoT), Connected Cars, Industrial
       IoT and DevOps.
     digest: a0ec24ed12eb4d3d049e4dff2ecbe5763b9d69ec7be9be3300799840033a82e1
+    home: https://github.com/taosdata/TDengine
+    icon: https://www.taosdata.com/images/taosdata-logo.png
+    keywords:
+    - iot
+    - tsdb
+    - tdengine
+    - bigdata
+    - metrics
+    - monitoring
+    maintainers:
+    - name: leon-inf
+      url: https://github.com/apecloud/kubeblocks/
+    name: tdengine
+    sources:
+    - https://github.com/taosdata/TDengine
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/tdengine-1.1.0-alpha.0/tdengine-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: time-series
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 3.0.5
+    created: "2025-12-15T01:49:36.74109878Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: TDengine is an open source, high-performance, cloud native time-series
+      database optimized for Internet of Things (IoT), Connected Cars, Industrial
+      IoT and DevOps.
+    digest: 1e3525b5055d349de8bd2d083293457ed36070d5bc2c0b1b41f69ea6cdf4aa6f
     home: https://github.com/taosdata/TDengine
     icon: https://www.taosdata.com/images/taosdata-logo.png
     keywords:
@@ -151227,6 +152116,31 @@ entries:
     description: TiDB is an open-source, cloud-native, distributed, MySQL-Compatible
       database for elastic scale and real-time analytics.
     digest: 840d6d227fb755613f631dfeba5ac408d42b6ff8b93c110573d0c5c6c0dbb0cc
+    maintainers:
+    - name: csuzhangxc
+      url: https://github.com/csuzhangxc
+    - name: cjc7373
+      url: https://github.com/apecloud/kubeblocks/
+    name: tidb
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/tidb-1.1.0-alpha.0/tidb-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: v7.1.5
+    created: "2025-12-15T01:49:36.884198736Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: TiDB is an open-source, cloud-native, distributed, MySQL-Compatible
+      database for elastic scale and real-time analytics.
+    digest: f359ee04f87a86e2592ae1d9560ebc2646decf61c2b2e6672b55cb9a21867b59
     maintainers:
     - name: csuzhangxc
       url: https://github.com/csuzhangxc
@@ -155305,6 +156219,34 @@ entries:
       addon.kubeblocks.io/provider: apecloud
     apiVersion: v2
     appVersion: 14.7.0
+    created: "2025-12-15T01:49:37.028094743Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Vanilla-PostgreSQL is compatible with the native PostgreSQL kernel,
+      enabling it to quickly provide HA solutions for various variants based on the
+      native PostgreSQL kernel.
+    digest: f486553646836dfdadca62e451ccb99c168991437b63b4025026a79dbc4e8662
+    home: https://kubeblocks.io/
+    icon: https://kubeblocks.io/img/logo.png
+    maintainers:
+    - name: kizuna-lek
+      url: https://github.com/apecloud/kubeblocks/
+    name: vanilla-postgresql
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/vanilla-postgresql-1.1.0-alpha.0/vanilla-postgresql-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: apecloud
+    apiVersion: v2
+    appVersion: 14.7.0
     created: "2025-09-11T08:44:59.174463613Z"
     dependencies:
     - alias: extra
@@ -155633,7 +156575,7 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 1.100.1
-    created: "2025-08-25T02:37:03.613799054Z"
+    created: "2025-12-15T01:49:37.175429438Z"
     dependencies:
     - alias: extra
       name: kblib
@@ -155641,7 +156583,7 @@ entries:
       version: 0.1.0
     description: VictoriaMetrics is a fast, cost-effective and scalable monitoring
       solution and time series database.
-    digest: 031fd3b7dd046439a5ef7a9f3103fd4785a8b59206e725824958735e1754d6e2
+    digest: 7cfc7c438c4debfe2b57fbdab81215c602998b2439767ca15f4ed2860462c15e
     maintainers:
     - name: sophon-zt
       url: https://github.com/apecloud/kubeblocks/
@@ -155742,6 +156684,31 @@ entries:
     description: VictoriaMetrics is a fast, cost-effective and scalable monitoring
       solution and time series database.
     digest: 258367f3de19c3fa677148aa9b8519afb95acb0d2ec11ee29da60037c439e1ff
+    maintainers:
+    - name: sophon-zt
+      url: https://github.com/apecloud/kubeblocks/
+    - name: ButterBright
+      url: https://github.com/apecloud/kubeblocks/
+    name: victoria-metrics
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/victoria-metrics-1.1.0-alpha.0/victoria-metrics-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: tsdb
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 1.100.1
+    created: "2025-08-25T02:37:03.613799054Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: VictoriaMetrics is a fast, cost-effective and scalable monitoring
+      solution and time series database.
+    digest: 031fd3b7dd046439a5ef7a9f3103fd4785a8b59206e725824958735e1754d6e2
     maintainers:
     - name: sophon-zt
       url: https://github.com/apecloud/kubeblocks/
@@ -156157,7 +157124,7 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 1.19.6
-    created: "2025-08-25T02:37:03.728515007Z"
+    created: "2025-12-15T01:49:37.313462603Z"
     dependencies:
     - alias: extra
       name: kblib
@@ -156166,7 +157133,7 @@ entries:
     description: Weaviate is an open-source vector database. It allows you to store
       data objects and vector embeddings from your favorite ML-models, and scale seamlessly
       into billions of data objects.
-    digest: c8d970eecafe1b2746b694ed91c07a56fdab114fab8cf96c9d728c653bf117de
+    digest: 927892288a8dd95ac190638d372f1d1c7472c6b35b3cc87a5f24906e48cba653
     home: https://weaviate.tech/
     icon: https://weaviate.tech/images/logo_with_text.svg
     maintainers:
@@ -156279,6 +157246,34 @@ entries:
       data objects and vector embeddings from your favorite ML-models, and scale seamlessly
       into billions of data objects.
     digest: 0f9276b2167043f29dbcbf50d3124f5c5311af76b1b795e9b31450e40e07b0ec
+    home: https://weaviate.tech/
+    icon: https://weaviate.tech/images/logo_with_text.svg
+    maintainers:
+    - name: iziang
+      url: https://github.com/apecloud/kubeblocks/
+    name: weaviate
+    sources:
+    - https://github.com/apecloud/kubeblocks/
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/weaviate-1.1.0-alpha.0/weaviate-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: vector
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 1.19.6
+    created: "2025-08-25T02:37:03.728515007Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Weaviate is an open-source vector database. It allows you to store
+      data objects and vector embeddings from your favorite ML-models, and scale seamlessly
+      into billions of data objects.
+    digest: c8d970eecafe1b2746b694ed91c07a56fdab114fab8cf96c9d728c653bf117de
     home: https://weaviate.tech/
     icon: https://weaviate.tech/images/logo_with_text.svg
     maintainers:
@@ -157718,6 +158713,29 @@ entries:
     description: Xorbits Inference(Xinference) is a powerful and versatile library
       designed to serve language, speech recognition, and multimodal models.
     digest: 9ec5fcda6b661069ebb650dc6e3ff33e67efaf4070409e76a4558484276a2a3e
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    name: xinference
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/xinference-1.1.0-alpha.0/xinference-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: LLM
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 1.13.0
+    created: "2025-12-15T01:49:37.475912804Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Xorbits Inference(Xinference) is a powerful and versatile library
+      designed to serve language, speech recognition, and multimodal models.
+    digest: 38d5138017777265a114ec9388f875ffa4f8d9e139146b814429b72e335bf550
     maintainers:
     - name: ApeCloud
       url: https://github.com/apecloud/kubeblocks/
@@ -159314,6 +160332,39 @@ entries:
       addon.kubeblocks.io/provider: community
     apiVersion: v2
     appVersion: 23.1.1-100
+    created: "2025-12-15T01:49:37.590516228Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: YashanDB is a new database system completely independently designed
+      and developed by SICS. Based on classical database theories, it incorporates
+      original Bounded Evaluation theory, Approximation theory, Parallel Scalability
+      theory and Cross-Modal Fusion Computation theory, supports multiple deployment
+      methods such as stand-alone/primary-standby, shared cluster, and distributed
+      ones, covers OLTP/HTAP/OLAP transactions and analyzes mixed load scenarios,
+      and is fully compatible with privatization and cloud infrastructure, providing
+      clients with one-stop enterprise-level converged data management solutions to
+      meet the needs of key industries such as finance, government, telecommunications
+      and energy for high performance, concurrency and security.
+    digest: 7277ace74e2feba4522681e59d438098abfe8276908836252f8e6c2ad0a4cff8
+    maintainers:
+    - name: JesseAtSZ
+      url: https://github.com/JesseAtSZ
+    - name: shanshanying
+      url: https://github.com/apecloud/kubeblocks/
+    name: yashandb
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/yashandb-1.1.0-alpha.0/yashandb-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: RDBMS
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 23.1.1-100
     created: "2025-09-11T08:45:00.107973011Z"
     dependencies:
     - alias: extra
@@ -159565,6 +160616,38 @@ entries:
       information, naming, providing distributed synchronization, and providing group
       services.
     digest: f6b23f8dfda809505569f47389b9edd878a2d4c603c5c215c804118232361965
+    home: https://zookeeper.apache.org/
+    icon: https://www.apache.org/logos/res/zookeeper/zookeeper.png
+    keywords:
+    - zookeeper
+    - synchronization
+    - middleware
+    maintainers:
+    - name: ApeCloud
+      url: https://github.com/apecloud/kubeblocks/
+    - name: kissycn
+      url: https://github.com/kissycn
+    name: zookeeper
+    type: application
+    urls:
+    - https://github.com/apecloud/helm-charts/releases/download/zookeeper-1.1.0-alpha.0/zookeeper-1.1.0-alpha.0.tgz
+    version: 1.1.0-alpha.0
+  - annotations:
+      addon.kubeblocks.io/kubeblocks-version: '>=1.0.0'
+      addon.kubeblocks.io/model: middleware
+      addon.kubeblocks.io/provider: community
+    apiVersion: v2
+    appVersion: 3.7.2
+    created: "2025-12-15T01:49:37.703741996Z"
+    dependencies:
+    - alias: extra
+      name: kblib
+      repository: file://../kblib
+      version: 0.1.0
+    description: Apache ZooKeeper is a centralized service for maintaining configuration
+      information, naming, providing distributed synchronization, and providing group
+      services.
+    digest: f42238a55b1d7d00b3a4313559797474033978994ff5e534f958af184126c3fc
     home: https://zookeeper.apache.org/
     icon: https://www.apache.org/logos/res/zookeeper/zookeeper.png
     keywords:
@@ -161425,4 +162508,4 @@ entries:
     urls:
     - https://github.com/apecloud/helm-charts/releases/download/zookeeper-cluster-0.7.0/zookeeper-cluster-0.7.0.tgz
     version: 0.7.0
-generated: "2025-12-15T01:47:44.954922676Z"
+generated: "2025-12-15T01:49:37.721299099Z"
