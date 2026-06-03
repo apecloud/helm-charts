@@ -5,8 +5,14 @@ on:
     inputs:
       VERSION:
         description: 'The version of helm chart'
+        type: string
         required: true
         default: ''
+      CHART_NAME:
+        description: "The name of helm chart"
+        type: string
+        required: false
+        default: 'kubeblocks'
   workflow_call:
     inputs:
       VERSION:
@@ -14,6 +20,12 @@ on:
         type: string
         required: true
         default: ''
+      CHART_NAME:
+        description: "The name of helm chart"
+        type: string
+        required: false
+        default: 'kubeblocks'
+
 
 run-name: update index version:${{ inputs.VERSION }}
 
@@ -33,9 +45,14 @@ jobs:
         id: update_index
         run: |
           CHART_VERSION=""
+          CHART_NAME="${{ inputs.CHART_NAME }}"
           for release in $(echo "${{ inputs.VERSION }}" | sed 's/|/ /g'); do
               CHART_VERSION="${release/v/}"
-              yq eval 'del(.entries.[].[]|select(.version == "'${CHART_VERSION}'" and .name == "kubeblocks"))' -i ${{ github.workspace }}/index.yaml
+              if [[ "${CHART_NAME}" == "kubeblocks" ]]; then
+                  yq eval 'del(.entries.[].[]|select(.version == "'${CHART_VERSION}'" and .name == "kubeblocks"))' -i ${{ github.workspace }}/index.yaml
+              elif [[ "${CHART_NAME}" == "kubeblocks-cloud" ]]; then
+                  yq eval 'del(.entries.[].[]|select(.version == "'${CHART_VERSION}'" and (.name == "kb-cloud-bootstrapper" or .name == "kb-cloud-installer")))' -i ${{ github.workspace }}/index.yaml
+              fi
           done
           FILE_CHANGES=`git diff --name-only ${{ github.sha }}`
           if [[ ! -z "$FILE_CHANGES" ]]; then
